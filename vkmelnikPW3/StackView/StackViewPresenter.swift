@@ -6,7 +6,7 @@
 //
 
 protocol StackViewPresentationLogic: AnyObject {
-    func presentButtonPressed(response: StackViewModel.ButtonPressed.Response)
+    
 }
 
 final class StackViewPresenter {
@@ -18,7 +18,5 @@ final class StackViewPresenter {
 }
 
 extension StackViewPresenter: StackViewPresentationLogic {
-    func presentButtonPressed(response: Model.ButtonPressed.Response) {
-        viewController?.dislayButtonPressed(viewModel: Model.ButtonPressed.ViewModel())
-    }
+    
 }

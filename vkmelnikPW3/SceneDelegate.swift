@@ -18,10 +18,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = StackViewController()
+        let tabBarController = UITabBarController()
+        let viewControllers = [
+            StackViewAssembly().build(),
+            TableViewAssembly().build(),
+            CollectionViewAssembly().build()
+        ]
+        tabBarController.setViewControllers(viewControllers, animated: false)
+        let nav = UINavigationController(rootViewController: tabBarController)
+        window.rootViewController = nav
         self.window = window
         window.makeKeyAndVisible()
-        let tabBarController = UITabBarController()
+        guard let items =
+                tabBarController.tabBar.items else {
+            return
+        }
+        
+        let titles = ["Stack", "Table", "Collection"]
+        for i in 0..<viewControllers.count {
+            viewControllers[i].title = titles[i]
+            items[i].image = UIImage(named: titles[i])
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
