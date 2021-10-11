@@ -29,6 +29,7 @@
 		126FA7BD27147C6F00C75C4F /* CollectionViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B727147C6F00C75C4F /* CollectionViewRouter.swift */; };
 		126FA7BE27147C6F00C75C4F /* CollectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */; };
 		126FA7BF27147C6F00C75C4F /* CollectionViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */; };
+		126FA7C1271483B800C75C4F /* UIView_Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7C0271483B800C75C4F /* UIView_Pin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		126FA7B727147C6F00C75C4F /* CollectionViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewRouter.swift; sourceTree = "<group>"; };
 		126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPresenter.swift; sourceTree = "<group>"; };
 		126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAssembly.swift; sourceTree = "<group>"; };
+		126FA7C0271483B800C75C4F /* UIView_Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Pin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				126FA79B2714786C00C75C4F /* StackView */,
 				126FA7832714739D00C75C4F /* AppDelegate.swift */,
 				126FA7852714739D00C75C4F /* SceneDelegate.swift */,
+				126FA7C0271483B800C75C4F /* UIView_Pin.swift */,
 				126FA78C2714739F00C75C4F /* Assets.xcassets */,
 				126FA78E2714739F00C75C4F /* LaunchScreen.storyboard */,
 				126FA7912714739F00C75C4F /* Info.plist */,
@@ -209,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				126FA7C1271483B800C75C4F /* UIView_Pin.swift in Sources */,
 				126FA7B027147C3900C75C4F /* TableViewRouter.swift in Sources */,
 				126FA7AF27147C3900C75C4F /* TableViewPresenter.swift in Sources */,
 				126FA7BF27147C6F00C75C4F /* CollectionViewAssembly.swift in Sources */,

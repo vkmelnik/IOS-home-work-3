@@ -14,6 +14,7 @@ protocol StackViewDisplayLogic {
 class StackViewController: UIViewController {
     
     private var interactor: StackViewBuisnessLogic?
+    private var stackView: UIStackView?
     
     func setupViewController(interactor: StackViewBuisnessLogic) {
         self.interactor = interactor
@@ -27,6 +28,13 @@ class StackViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .systemTeal
+        let stackView = UIStackView()
+        view.addSubview(stackView)
+        stackView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        stackView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        stackView.pin(to: view, .left, .right)
+        stackView.backgroundColor = .white
+        self.stackView = stackView
     }
 
 

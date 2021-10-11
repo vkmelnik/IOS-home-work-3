@@ -14,6 +14,7 @@ protocol TableViewDisplayLogic {
 class TableViewController: UIViewController {
     
     private var interactor: TableViewBuisnessLogic?
+    private var tableView: UITableView?
     
     func setupViewController(interactor: TableViewBuisnessLogic) {
         self.interactor = interactor
@@ -27,6 +28,13 @@ class TableViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .systemMint
+        let tableView = UITableView()
+        view.addSubview(tableView)
+        tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        tableView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        tableView.pin(to: view, .left, .right)
+        tableView.backgroundColor = .white
+        self.tableView = tableView
     }
 
 
