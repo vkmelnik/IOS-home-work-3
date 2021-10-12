@@ -28,6 +28,10 @@ class TableViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .systemMint
+        setupTableView()
+    }
+
+    func setupTableView() {
         let tableView = UITableView()
         view.addSubview(tableView)
         tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
@@ -35,8 +39,10 @@ class TableViewController: UIViewController {
         tableView.pin(to: view, .left, .right)
         tableView.backgroundColor = .white
         self.tableView = tableView
+        tableView.register(EyeCell.self, forCellReuseIdentifier: "eyeCell")
+        tableView.delegate = interactor?.getTableViewDelegate()
+        tableView.dataSource = interactor?.getTableViewDataSource()
     }
-
 
 }
 
