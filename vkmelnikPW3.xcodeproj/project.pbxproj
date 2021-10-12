@@ -30,6 +30,7 @@
 		126FA7BE27147C6F00C75C4F /* CollectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */; };
 		126FA7BF27147C6F00C75C4F /* CollectionViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */; };
 		126FA7C1271483B800C75C4F /* UIView_Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7C0271483B800C75C4F /* UIView_Pin.swift */; };
+		126FA7C42714874600C75C4F /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7C32714874600C75C4F /* AlarmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPresenter.swift; sourceTree = "<group>"; };
 		126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAssembly.swift; sourceTree = "<group>"; };
 		126FA7C0271483B800C75C4F /* UIView_Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Pin.swift; sourceTree = "<group>"; };
+		126FA7C32714874600C75C4F /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		126FA7822714739D00C75C4F /* vkmelnikPW3 */ = {
 			isa = PBXGroup;
 			children = (
+				126FA7C22714872B00C75C4F /* View */,
 				126FA79D2714789A00C75C4F /* CollectionView */,
 				126FA79C2714788900C75C4F /* TableView */,
 				126FA79B2714786C00C75C4F /* StackView */,
@@ -140,6 +143,14 @@
 				126FA7B727147C6F00C75C4F /* CollectionViewRouter.swift */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		126FA7C22714872B00C75C4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				126FA7C32714874600C75C4F /* AlarmView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 				126FA7A32714791900C75C4F /* StackViewInteractor.swift in Sources */,
 				126FA7BA27147C6F00C75C4F /* CollectionViewInteractor.swift in Sources */,
 				126FA7BE27147C6F00C75C4F /* CollectionViewPresenter.swift in Sources */,
+				126FA7C42714874600C75C4F /* AlarmView.swift in Sources */,
 				126FA7A62714791900C75C4F /* StackViewModels.swift in Sources */,
 				126FA7B327147C3900C75C4F /* TableViewAssembly.swift in Sources */,
 				126FA7BD27147C6F00C75C4F /* CollectionViewRouter.swift in Sources */,
@@ -371,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MEGQZTHC53;
@@ -385,8 +398,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hse.edu.vkmelnikPW3;
+				PRODUCT_BUNDLE_IDENTIFIER = vkmelnikPW3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,6 +412,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MEGQZTHC53;
@@ -412,8 +427,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hse.edu.vkmelnikPW3;
+				PRODUCT_BUNDLE_IDENTIFIER = vkmelnikPW3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
