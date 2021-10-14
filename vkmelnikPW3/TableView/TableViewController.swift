@@ -39,7 +39,7 @@ class TableViewController: UIViewController {
         tableView.pin(to: view, .left, .right)
         tableView.backgroundColor = .white
         self.tableView = tableView
-        tableView.register(EyeCell.self, forCellReuseIdentifier: "eyeCell")
+        tableView.register(AlarmViewCell.self, forCellReuseIdentifier: "alarmViewCell")
         tableView.delegate = interactor?.getTableViewDelegate()
         tableView.dataSource = interactor?.getTableViewDataSource()
     }

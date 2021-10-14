@@ -9,12 +9,22 @@ import UIKit
 
 class AlarmView: UIView {
 
-    private var toggle: UISwitch?
+    public var toggle: UISwitch?
     private var time: UILabel?
+    public var alarmModel: AlarmModel?
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 200, height: 70))
         setupAlarmView()
+    }
+    
+    convenience init(alarm: AlarmModel) {
+        self.init()
+        self.alarmModel = alarm
+        toggle?.isOn = alarmModel!.isActive
+        let hours = alarmModel!.time / 60
+        let minutes = alarmModel!.time % 60
+        time?.text = "\(hours / 10)\(hours % 10):\(minutes / 10)\(minutes % 10)"
     }
     
     func setupAlarmView() {

@@ -12,11 +12,13 @@ protocol TableViewPresentationLogic: AnyObject {
 }
 
 final class TableViewPresenter: NSObject {
-    typealias Model = TableViewModel
-
     var viewController: TableViewDisplayLogic?
-    
+    var interactor: TableViewBuisnessLogic?
+    var alarmsContainer: AlarmsContainer?
 
+    @objc func switchChanged(mySwitch: UISwitch) {
+        interactor?.switchChanged(index: mySwitch.tag, value: mySwitch.isOn)
+    }
 }
 
 extension TableViewPresenter: TableViewPresentationLogic {
@@ -25,7 +27,7 @@ extension TableViewPresenter: TableViewPresentationLogic {
 
 extension TableViewPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
-        300
+        alarmsContainer?.alarms.count ?? 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,10 +38,12 @@ extension TableViewPresenter: UITableViewDelegate {
 extension TableViewPresenter: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "eyeCell",
+            withIdentifier: "alarmViewCell",
             for: indexPath
-        ) as? EyeCell
-        cell?.setupEye()
+        ) as? AlarmViewCell
+        cell?.setupAlarmView(alarmModel: alarmsContainer!.alarms[indexPath.row])
+        cell?.alarmView!.toggle?.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        cell?.alarmView!.toggle?.tag = indexPath.row
         return cell ?? UITableViewCell()
     }
 }

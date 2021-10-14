@@ -10,8 +10,6 @@ protocol CollectionViewPresentationLogic: AnyObject {
 }
 
 final class CollectionViewPresenter {
-    typealias Model = CollectionViewModel
-
     var viewController: CollectionViewDisplayLogic?
     
 

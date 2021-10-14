@@ -10,15 +10,24 @@ import UIKit
 protocol TableViewBuisnessLogic {
     func getTableViewDataSource() -> UITableViewDataSource
     func getTableViewDelegate() -> UITableViewDelegate
+    
+    func switchChanged(index: Int, value: Bool)
 }
 
-final class TableViewInteractor {
-    typealias Model = TableViewModel
-    
+final class TableViewInteractor {    
     var presenter: TableViewPresentationLogic?
+    var alarmsContainer: AlarmsContainer?
 }
 
 extension TableViewInteractor: TableViewBuisnessLogic {
+    func switchChanged(index: Int, value: Bool) {
+        if (value) {
+            alarmsContainer?.alarms[index].isActive = true
+        } else {
+            alarmsContainer?.alarms[index].isActive = false
+        }
+    }
+    
     func getTableViewDataSource() -> UITableViewDataSource {
         return presenter as! UITableViewDataSource
     }

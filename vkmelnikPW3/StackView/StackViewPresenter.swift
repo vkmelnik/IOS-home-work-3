@@ -10,8 +10,6 @@ protocol StackViewPresentationLogic: AnyObject {
 }
 
 final class StackViewPresenter {
-    typealias Model = StackViewModel
-
     var viewController: StackViewDisplayLogic?
     
 

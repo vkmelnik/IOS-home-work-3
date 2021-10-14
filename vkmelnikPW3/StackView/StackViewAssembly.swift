@@ -8,7 +8,7 @@
 import UIKit
 
 final class StackViewAssembly {
-    func build() -> UIViewController {
+    func build(alarms: AlarmsContainer) -> UIViewController {
         let interactor = StackViewInteractor()
         let vc = StackViewController()
         vc.setupViewController(interactor: interactor)

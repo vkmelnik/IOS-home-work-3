@@ -10,8 +10,6 @@ protocol StackViewBuisnessLogic {
 }
 
 final class StackViewInteractor {
-    typealias Model = StackViewModel
-    
     weak var presenter: StackViewPresentationLogic?
 }
 

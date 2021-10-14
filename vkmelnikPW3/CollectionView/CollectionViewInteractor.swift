@@ -10,8 +10,6 @@ protocol CollectionViewBuisnessLogic {
 }
 
 final class CollectionViewInteractor {
-    typealias Model = CollectionViewModel
-    
     weak var presenter: CollectionViewPresentationLogic?
 }
 

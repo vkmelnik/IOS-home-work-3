@@ -16,9 +16,7 @@
 		126FA7A32714791900C75C4F /* StackViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA79E2714791900C75C4F /* StackViewInteractor.swift */; };
 		126FA7A42714791900C75C4F /* StackViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA79F2714791900C75C4F /* StackViewAssembly.swift */; };
 		126FA7A52714791900C75C4F /* StackViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7A02714791900C75C4F /* StackViewRouter.swift */; };
-		126FA7A62714791900C75C4F /* StackViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7A12714791900C75C4F /* StackViewModels.swift */; };
 		126FA7A72714791900C75C4F /* StackViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7A22714791900C75C4F /* StackViewPresenter.swift */; };
-		126FA7AE27147C3900C75C4F /* TableViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7A827147C3900C75C4F /* TableViewModels.swift */; };
 		126FA7AF27147C3900C75C4F /* TableViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7A927147C3900C75C4F /* TableViewPresenter.swift */; };
 		126FA7B027147C3900C75C4F /* TableViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7AA27147C3900C75C4F /* TableViewRouter.swift */; };
 		126FA7B127147C3900C75C4F /* TableViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7AB27147C3900C75C4F /* TableViewInteractor.swift */; };
@@ -26,12 +24,14 @@
 		126FA7B327147C3900C75C4F /* TableViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7AD27147C3900C75C4F /* TableViewAssembly.swift */; };
 		126FA7BA27147C6F00C75C4F /* CollectionViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B427147C6E00C75C4F /* CollectionViewInteractor.swift */; };
 		126FA7BB27147C6F00C75C4F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B527147C6E00C75C4F /* CollectionViewController.swift */; };
-		126FA7BC27147C6F00C75C4F /* CollectionViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B627147C6E00C75C4F /* CollectionViewModels.swift */; };
 		126FA7BD27147C6F00C75C4F /* CollectionViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B727147C6F00C75C4F /* CollectionViewRouter.swift */; };
 		126FA7BE27147C6F00C75C4F /* CollectionViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */; };
 		126FA7BF27147C6F00C75C4F /* CollectionViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */; };
 		126FA7C1271483B800C75C4F /* UIView_Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7C0271483B800C75C4F /* UIView_Pin.swift */; };
 		126FA7C42714874600C75C4F /* AlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7C32714874600C75C4F /* AlarmView.swift */; };
+		1281AFAA271837F500ADC41B /* AlarmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1281AFA9271837F500ADC41B /* AlarmModel.swift */; };
+		1281AFAD2718386000ADC41B /* AlarmsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1281AFAC2718386000ADC41B /* AlarmsContainer.swift */; };
+		1281AFAF27183C1D00ADC41B /* AlarmViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1281AFAE27183C1D00ADC41B /* AlarmViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +46,7 @@
 		126FA79E2714791900C75C4F /* StackViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewInteractor.swift; sourceTree = "<group>"; };
 		126FA79F2714791900C75C4F /* StackViewAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewAssembly.swift; sourceTree = "<group>"; };
 		126FA7A02714791900C75C4F /* StackViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewRouter.swift; sourceTree = "<group>"; };
-		126FA7A12714791900C75C4F /* StackViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewModels.swift; sourceTree = "<group>"; };
 		126FA7A22714791900C75C4F /* StackViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewPresenter.swift; sourceTree = "<group>"; };
-		126FA7A827147C3900C75C4F /* TableViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewModels.swift; sourceTree = "<group>"; };
 		126FA7A927147C3900C75C4F /* TableViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewPresenter.swift; sourceTree = "<group>"; };
 		126FA7AA27147C3900C75C4F /* TableViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRouter.swift; sourceTree = "<group>"; };
 		126FA7AB27147C3900C75C4F /* TableViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewInteractor.swift; sourceTree = "<group>"; };
@@ -56,12 +54,14 @@
 		126FA7AD27147C3900C75C4F /* TableViewAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewAssembly.swift; sourceTree = "<group>"; };
 		126FA7B427147C6E00C75C4F /* CollectionViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewInteractor.swift; sourceTree = "<group>"; };
 		126FA7B527147C6E00C75C4F /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		126FA7B627147C6E00C75C4F /* CollectionViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewModels.swift; sourceTree = "<group>"; };
 		126FA7B727147C6F00C75C4F /* CollectionViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewRouter.swift; sourceTree = "<group>"; };
 		126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewPresenter.swift; sourceTree = "<group>"; };
 		126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewAssembly.swift; sourceTree = "<group>"; };
 		126FA7C0271483B800C75C4F /* UIView_Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_Pin.swift; sourceTree = "<group>"; };
 		126FA7C32714874600C75C4F /* AlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmView.swift; sourceTree = "<group>"; };
+		1281AFA9271837F500ADC41B /* AlarmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModel.swift; sourceTree = "<group>"; };
+		1281AFAC2718386000ADC41B /* AlarmsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsContainer.swift; sourceTree = "<group>"; };
+		1281AFAE27183C1D00ADC41B /* AlarmViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +94,7 @@
 		126FA7822714739D00C75C4F /* vkmelnikPW3 */ = {
 			isa = PBXGroup;
 			children = (
+				1281AFAB2718384400ADC41B /* Models */,
 				126FA7C22714872B00C75C4F /* View */,
 				126FA79D2714789A00C75C4F /* CollectionView */,
 				126FA79C2714788900C75C4F /* TableView */,
@@ -114,7 +115,6 @@
 				126FA7872714739D00C75C4F /* StackViewController.swift */,
 				126FA79F2714791900C75C4F /* StackViewAssembly.swift */,
 				126FA79E2714791900C75C4F /* StackViewInteractor.swift */,
-				126FA7A12714791900C75C4F /* StackViewModels.swift */,
 				126FA7A22714791900C75C4F /* StackViewPresenter.swift */,
 				126FA7A02714791900C75C4F /* StackViewRouter.swift */,
 			);
@@ -127,7 +127,6 @@
 				126FA7AD27147C3900C75C4F /* TableViewAssembly.swift */,
 				126FA7AC27147C3900C75C4F /* TableViewController.swift */,
 				126FA7AB27147C3900C75C4F /* TableViewInteractor.swift */,
-				126FA7A827147C3900C75C4F /* TableViewModels.swift */,
 				126FA7A927147C3900C75C4F /* TableViewPresenter.swift */,
 				126FA7AA27147C3900C75C4F /* TableViewRouter.swift */,
 			);
@@ -140,7 +139,6 @@
 				126FA7B927147C6F00C75C4F /* CollectionViewAssembly.swift */,
 				126FA7B527147C6E00C75C4F /* CollectionViewController.swift */,
 				126FA7B427147C6E00C75C4F /* CollectionViewInteractor.swift */,
-				126FA7B627147C6E00C75C4F /* CollectionViewModels.swift */,
 				126FA7B827147C6F00C75C4F /* CollectionViewPresenter.swift */,
 				126FA7B727147C6F00C75C4F /* CollectionViewRouter.swift */,
 			);
@@ -152,8 +150,18 @@
 			children = (
 				126FA7C32714874600C75C4F /* AlarmView.swift */,
 				12272EEA2715BDC50042E483 /* EyeCell.swift */,
+				1281AFAE27183C1D00ADC41B /* AlarmViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1281AFAB2718384400ADC41B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1281AFA9271837F500ADC41B /* AlarmModel.swift */,
+				1281AFAC2718386000ADC41B /* AlarmsContainer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +236,12 @@
 			files = (
 				126FA7C1271483B800C75C4F /* UIView_Pin.swift in Sources */,
 				126FA7B027147C3900C75C4F /* TableViewRouter.swift in Sources */,
+				1281AFAA271837F500ADC41B /* AlarmModel.swift in Sources */,
 				126FA7AF27147C3900C75C4F /* TableViewPresenter.swift in Sources */,
 				126FA7BF27147C6F00C75C4F /* CollectionViewAssembly.swift in Sources */,
+				1281AFAD2718386000ADC41B /* AlarmsContainer.swift in Sources */,
 				126FA7B227147C3900C75C4F /* TableViewController.swift in Sources */,
+				1281AFAF27183C1D00ADC41B /* AlarmViewCell.swift in Sources */,
 				126FA7B127147C3900C75C4F /* TableViewInteractor.swift in Sources */,
 				126FA7BB27147C6F00C75C4F /* CollectionViewController.swift in Sources */,
 				126FA7882714739D00C75C4F /* StackViewController.swift in Sources */,
@@ -240,13 +251,10 @@
 				126FA7A52714791900C75C4F /* StackViewRouter.swift in Sources */,
 				126FA7A42714791900C75C4F /* StackViewAssembly.swift in Sources */,
 				126FA7A72714791900C75C4F /* StackViewPresenter.swift in Sources */,
-				126FA7BC27147C6F00C75C4F /* CollectionViewModels.swift in Sources */,
-				126FA7AE27147C3900C75C4F /* TableViewModels.swift in Sources */,
 				126FA7A32714791900C75C4F /* StackViewInteractor.swift in Sources */,
 				126FA7BA27147C6F00C75C4F /* CollectionViewInteractor.swift in Sources */,
 				126FA7BE27147C6F00C75C4F /* CollectionViewPresenter.swift in Sources */,
 				126FA7C42714874600C75C4F /* AlarmView.swift in Sources */,
-				126FA7A62714791900C75C4F /* StackViewModels.swift in Sources */,
 				126FA7B327147C3900C75C4F /* TableViewAssembly.swift in Sources */,
 				126FA7BD27147C6F00C75C4F /* CollectionViewRouter.swift in Sources */,
 			);

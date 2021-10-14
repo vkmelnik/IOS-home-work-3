@@ -8,7 +8,7 @@
 import UIKit
 
 final class CollectionViewAssembly {
-    func build() -> UIViewController {
+    func build(alarms: AlarmsContainer) -> UIViewController {
         let interactor = CollectionViewInteractor()
         let vc = CollectionViewController()
         vc.setupViewController(interactor: interactor)

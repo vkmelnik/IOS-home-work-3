@@ -11,6 +11,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+    func generateAlarms(alarms: AlarmsContainer) {
+        for _ in 0..<200 {
+            alarms.alarms.append( AlarmModel(
+                time: Int.random(in: 0...1440),
+                isActive: Bool.random()
+                )
+            )
+        }
+        alarms.alarms.sort(by: { $0.time < $1.time })
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -19,10 +29,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let tabBarController = UITabBarController()
+        
+        let alarms = AlarmsContainer()
+        generateAlarms(alarms: alarms)
+        
         let viewControllers = [
-            StackViewAssembly().build(),
-            TableViewAssembly().build(),
-            CollectionViewAssembly().build()
+            StackViewAssembly().build(alarms: alarms),
+            TableViewAssembly().build(alarms: alarms),
+            CollectionViewAssembly().build(alarms: alarms)
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
         let nav = UINavigationController(rootViewController: tabBarController)
