@@ -30,6 +30,10 @@ class TableViewController: UIViewController {
         self.view.backgroundColor = .systemMint
         setupTableView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView?.reloadData()
+    }
 
     func setupTableView() {
         let tableView = UITableView()

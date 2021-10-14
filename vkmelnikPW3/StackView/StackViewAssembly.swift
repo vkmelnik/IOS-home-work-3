@@ -14,6 +14,7 @@ final class StackViewAssembly {
         vc.setupViewController(interactor: interactor)
         let presenter = StackViewPresenter()
         interactor.presenter = presenter
+        interactor.alarmsContainer = alarms
         presenter.viewController = vc
         
         return vc

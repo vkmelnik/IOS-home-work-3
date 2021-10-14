@@ -21,6 +21,7 @@ final class TableViewInteractor {
 
 extension TableViewInteractor: TableViewBuisnessLogic {
     func switchChanged(index: Int, value: Bool) {
+        alarmsContainer?.wasUpdated = true
         if (value) {
             alarmsContainer?.alarms[index].isActive = true
         } else {

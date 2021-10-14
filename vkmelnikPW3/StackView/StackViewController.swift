@@ -8,14 +8,13 @@
 import UIKit
 
 protocol StackViewDisplayLogic {
-    
+    func addAlarmToStack(alarm: AlarmModel, index: Int)
 }
 
 class StackViewController: UIViewController {
     
     private var interactor: StackViewBuisnessLogic?
     private var stackView: UIStackView?
-    private var alarmsCount: Int = 20
     
     func setupViewController(interactor: StackViewBuisnessLogic) {
         self.interactor = interactor
@@ -41,12 +40,10 @@ class StackViewController: UIViewController {
         stackView.backgroundColor = .white
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: CGFloat(alarmsCount) * 55.0)
-        stackView.spacing = 5
+        stackView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.0)
+        stackView.spacing = 0
         self.stackView = stackView
-        for _ in 0..<alarmsCount {
-            addAlarmToStack()
-        }
+        interactor?.setupStackView()
         // Setup scroll view.
         scrollView.setWidth(to: view.frame.width)
         scrollView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
@@ -56,18 +53,37 @@ class StackViewController: UIViewController {
         scrollView.alwaysBounceVertical = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if (interactor?.alarmsUpdated() ?? false) {
+            clearStackView()
+            stackView!.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.0)
+            interactor?.setupStackView()
+            interactor?.viewUpdated()
+        }
+    }
+    
+    func clearStackView() {
+        for subview in stackView!.arrangedSubviews {
+            stackView?.removeArrangedSubview(subview)
+        }
+    }
+    
     func setupScrollView(scrollView: UIScrollView) {
         
     }
-
-    func addAlarmToStack() {
-        let alarmView = AlarmView()
-        stackView!.addArrangedSubview(alarmView)
-        alarmView.pinRight(to: stackView!)
-        alarmView.pinLeft(to: stackView!)
+    
+    @objc func switchChanged(mySwitch: UISwitch) {
+        interactor?.switchChanged(index: mySwitch.tag, value: mySwitch.isOn)
     }
 }
 
 extension StackViewController: StackViewDisplayLogic {
-    
+    func addAlarmToStack(alarm: AlarmModel, index: Int) {
+        let alarmView = AlarmView(alarm: alarm)
+        alarmView.toggle?.tag = index
+        alarmView.toggle?.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        stackView!.addArrangedSubview(alarmView)
+        alarmView.pinRight(to: stackView!)
+        alarmView.pinLeft(to: stackView!)
+    }
 }

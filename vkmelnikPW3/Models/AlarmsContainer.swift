@@ -9,4 +9,5 @@ import Foundation
 
 class AlarmsContainer {
     public var alarms: [AlarmModel] = []
+    public var wasUpdated: Bool = false
 }

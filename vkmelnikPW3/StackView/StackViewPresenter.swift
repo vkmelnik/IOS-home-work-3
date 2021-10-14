@@ -6,7 +6,7 @@
 //
 
 protocol StackViewPresentationLogic: AnyObject {
-    
+    func setupStackView(alarms: AlarmsContainer)
 }
 
 final class StackViewPresenter {
@@ -17,4 +17,9 @@ final class StackViewPresenter {
 
 extension StackViewPresenter: StackViewPresentationLogic {
     
+    func setupStackView(alarms: AlarmsContainer) {
+        for i in 0..<alarms.alarms.count {
+            viewController?.addAlarmToStack(alarm: alarms.alarms[i], index: i)
+        }
+    }
 }
