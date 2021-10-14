@@ -18,4 +18,12 @@ final class EyeCell: UITableViewCell {
         image.setHeight(to: 20)
         image.setWidth(to: 30)
     }
+    
+    override func prepareForReuse() {
+        for subview in subviews {
+            if subview is UIImageView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
 }
