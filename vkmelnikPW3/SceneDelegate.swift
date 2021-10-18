@@ -36,7 +36,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewControllers = [
             StackViewAssembly().build(alarms: alarms),
             TableViewAssembly().build(alarms: alarms),
-            CollectionViewAssembly().build(alarms: alarms)
+            CollectionViewAssembly().build(alarms: alarms),
+            AlarmCreationViewAssembly().build(alarms: alarms)
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
         let nav = UINavigationController(rootViewController: tabBarController)
@@ -48,7 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        let titles = ["Stack", "Table", "Collection"]
+        let titles = ["Stack", "Table", "Collection", "Add"]
         for i in 0..<viewControllers.count {
             viewControllers[i].title = titles[i]
             items[i].image = UIImage(named: titles[i])
