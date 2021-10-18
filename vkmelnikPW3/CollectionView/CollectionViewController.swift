@@ -27,22 +27,22 @@ class CollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .systemBrown
+        self.view.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         setupCollectionView()
     }
 
     private func setupCollectionView() {
         let layoutFlow = UICollectionViewFlowLayout()
-        layoutFlow.sectionInset = UIEdgeInsets(top: 10, left: 10,
+        layoutFlow.sectionInset = UIEdgeInsets(top: 20, left: 10,
         bottom: 10, right: 10)
         layoutFlow.scrollDirection = .horizontal
-        layoutFlow.itemSize = CGSize(width: view.frame.width * 2 / 3, height: 50)
+        layoutFlow.itemSize = CGSize(width: 240, height: 120)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layoutFlow)
         view.addSubview(collection)
         collection.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         collection.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
         collection.pin(to: view, .left, .right)
-        collection.backgroundColor = .systemGray5
+        collection.backgroundColor = #colorLiteral(red: 0.862745098, green: 0.862745098, blue: 0.862745098, alpha: 1)
         collection.register(AlarmCollectionViewCell.self, forCellWithReuseIdentifier: "alarmCollectionViewCell")
         collection.delegate = interactor?.getCollectionViewDelegate()
         collection.dataSource = interactor?.getCollectionViewDataSource()

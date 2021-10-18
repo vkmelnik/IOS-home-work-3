@@ -22,12 +22,12 @@ class AlarmCreationViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .darkContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         setupAlarmCreation()
         // Do any additional setup after loading the view.
     }
@@ -40,7 +40,7 @@ class AlarmCreationViewController: UIViewController {
     private func setupDoneButton() {
         let doneButton = UIButton()
         doneButton.setTitle("Add alarm", for: .normal)
-        doneButton.backgroundColor = .green
+        doneButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.7058823529, blue: 0.2, alpha: 1)
         view.addSubview(doneButton)
         doneButton.pinTop(to: timePicker!.bottomAnchor, 10)
         doneButton.pinLeft(to: view, 10)

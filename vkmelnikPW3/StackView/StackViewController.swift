@@ -27,7 +27,7 @@ class StackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .systemTeal
+        self.view.backgroundColor = #colorLiteral(red: 0.7963445923, green: 0.6599310855, blue: 0.4068124152, alpha: 1)
         setupStackView()
     }
     
