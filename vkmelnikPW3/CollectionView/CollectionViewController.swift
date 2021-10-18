@@ -33,15 +33,19 @@ class CollectionViewController: UIViewController {
 
     private func setupCollectionView() {
         let layoutFlow = UICollectionViewFlowLayout()
-        layoutFlow.sectionInset = UIEdgeInsets(top: 20, left: 10,
+        layoutFlow.sectionInset = UIEdgeInsets(top: 10, left: 10,
         bottom: 10, right: 10)
-        layoutFlow.itemSize = CGSize(width: 60, height: 60)
+        layoutFlow.scrollDirection = .horizontal
+        layoutFlow.itemSize = CGSize(width: view.frame.width * 2 / 3, height: 50)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layoutFlow)
         view.addSubview(collection)
         collection.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         collection.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
         collection.pin(to: view, .left, .right)
-        collection.backgroundColor = .white
+        collection.backgroundColor = .systemGray5
+        collection.register(AlarmCollectionViewCell.self, forCellWithReuseIdentifier: "alarmCollectionViewCell")
+        collection.delegate = interactor?.getCollectionViewDelegate()
+        collection.dataSource = interactor?.getCollectionViewDataSource()
         self.collection = collection
     }
 

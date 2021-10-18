@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		121048FF271D7750001F2430 /* AlarmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121048FE271D7750001F2430 /* AlarmCollectionViewCell.swift */; };
 		12272EEB2715BDC50042E483 /* EyeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12272EEA2715BDC50042E483 /* EyeCell.swift */; };
 		126FA7842714739D00C75C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7832714739D00C75C4F /* AppDelegate.swift */; };
 		126FA7862714739D00C75C4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7852714739D00C75C4F /* SceneDelegate.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		121048FE271D7750001F2430 /* AlarmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCollectionViewCell.swift; sourceTree = "<group>"; };
 		12272EEA2715BDC50042E483 /* EyeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeCell.swift; sourceTree = "<group>"; };
 		126FA7802714739D00C75C4F /* vkmelnikPW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkmelnikPW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126FA7832714739D00C75C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				126FA7C32714874600C75C4F /* AlarmView.swift */,
 				12272EEA2715BDC50042E483 /* EyeCell.swift */,
 				1281AFAE27183C1D00ADC41B /* AlarmViewCell.swift */,
+				121048FE271D7750001F2430 /* AlarmCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				126FA7BB27147C6F00C75C4F /* CollectionViewController.swift in Sources */,
 				126FA7882714739D00C75C4F /* StackViewController.swift in Sources */,
 				126FA7842714739D00C75C4F /* AppDelegate.swift in Sources */,
+				121048FF271D7750001F2430 /* AlarmCollectionViewCell.swift in Sources */,
 				126FA7862714739D00C75C4F /* SceneDelegate.swift in Sources */,
 				12272EEB2715BDC50042E483 /* EyeCell.swift in Sources */,
 				126FA7A52714791900C75C4F /* StackViewRouter.swift in Sources */,

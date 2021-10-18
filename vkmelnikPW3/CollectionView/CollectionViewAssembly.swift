@@ -14,7 +14,10 @@ final class CollectionViewAssembly {
         vc.setupViewController(interactor: interactor)
         let presenter = CollectionViewPresenter()
         interactor.presenter = presenter
+        interactor.alarmsContainer = alarms
+        presenter.alarmsContainer = alarms
         presenter.viewController = vc
+        presenter.interactor = interactor
         
         return vc
     }

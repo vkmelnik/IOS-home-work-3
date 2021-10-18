@@ -35,7 +35,7 @@ class TableViewController: UIViewController {
         tableView?.reloadData()
     }
 
-    func setupTableView() {
+    private func setupTableView() {
         let tableView = UITableView()
         view.addSubview(tableView)
         tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
