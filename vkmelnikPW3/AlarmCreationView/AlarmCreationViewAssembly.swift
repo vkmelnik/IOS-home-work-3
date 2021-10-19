@@ -8,13 +8,14 @@
 import UIKit
 
 final class AlarmCreationViewAssembly {
-    func build(alarms: AlarmsContainer) -> UIViewController {
+    func build(alarms: AlarmsContainer, notificationManager: RetroNotificationManager) -> UIViewController {
         let interactor = AlarmCreationViewInteractor()
         let vc = AlarmCreationViewController()
         vc.setupViewController(interactor: interactor)
         let presenter = AlarmCreationViewPresenter()
         interactor.presenter = presenter
         interactor.alarmsContainer = alarms
+        interactor.notificationManager = notificationManager
         presenter.alarmsContainer = alarms
         presenter.viewController = vc
         presenter.interactor = interactor

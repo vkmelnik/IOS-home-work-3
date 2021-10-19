@@ -27,7 +27,7 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = #colorLiteral(red: 0.818212769, green: 0.6417710149, blue: 0.001925064622, alpha: 1)
+        setupRetroBackground()
         setupTableView()
     }
     
@@ -38,10 +38,12 @@ class TableViewController: UIViewController {
     private func setupTableView() {
         let tableView = UITableView()
         view.addSubview(tableView)
-        tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
-        tableView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
-        tableView.pin(to: view, .left, .right)
-        tableView.backgroundColor = .white
+        tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        tableView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 10)
+        tableView.pinLeft(to: view, 10)
+        tableView.pinRight(to: view, 10)
+        tableView.layer.cornerRadius = 15
+        tableView.backgroundColor = .clear
         self.tableView = tableView
         tableView.register(AlarmViewCell.self, forCellReuseIdentifier: "alarmViewCell")
         tableView.delegate = interactor?.getTableViewDelegate()

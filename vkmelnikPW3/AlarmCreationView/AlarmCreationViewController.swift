@@ -27,7 +27,8 @@ class AlarmCreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.8220563487, green: 0.8234423022, blue: 0.8715592698, alpha: 1)
+        setupRetroBackground2()
         setupAlarmCreation()
         // Do any additional setup after loading the view.
     }
@@ -37,16 +38,28 @@ class AlarmCreationViewController: UIViewController {
         setupDoneButton()
     }
     
+    @objc func buttonPressed(sender:UIButton) {
+        let date = timePicker!.date
+        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
+        let hour = components.hour!
+        let minute = components.minute!
+        
+        let time = hour * 60 + minute
+        interactor?.createAlarm(time: time)
+    }
+    
     private func setupDoneButton() {
         let doneButton = UIButton()
         doneButton.setTitle("Add alarm", for: .normal)
-        doneButton.backgroundColor = #colorLiteral(red: 0.9607843137, green: 0.7058823529, blue: 0.2, alpha: 1)
         view.addSubview(doneButton)
         doneButton.pinTop(to: timePicker!.bottomAnchor, 10)
         doneButton.pinLeft(to: view, 10)
         doneButton.pinRight(to: view, 10)
         doneButton.setHeight(to: 50)
         doneButton.layer.cornerRadius = 15
+        doneButton.layoutIfNeeded()
+        doneButton.makeRetroUI()
+        doneButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         self.doneButton = doneButton
     }
 
@@ -59,6 +72,8 @@ class AlarmCreationViewController: UIViewController {
         timePicker.pinLeft(to: view, 10)
         timePicker.pinRight(to: view, 10)
         timePicker.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        timePicker.layoutIfNeeded()
+        timePicker.makeRetroUI()
         self.timePicker = timePicker
     }
 }

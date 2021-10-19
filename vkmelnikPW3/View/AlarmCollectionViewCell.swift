@@ -17,8 +17,15 @@ class AlarmCollectionViewCell: UICollectionViewCell {
         let view = AlarmView(alarm: alarmModel)
         contentView.addSubview(view)
         view.pin(to: contentView)
-        self.alarmView = view
         view.layer.cornerRadius = 15
+        self.alarmView = view
+        self.layer.cornerRadius = 15
+    }
+    
+    override var bounds: CGRect {
+        didSet {
+            alarmView?.gradient?.cornerRadius = 15
+        }
     }
     
     override func prepareForReuse() {

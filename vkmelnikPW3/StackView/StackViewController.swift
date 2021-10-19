@@ -27,7 +27,7 @@ class StackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = #colorLiteral(red: 0.7963445923, green: 0.6599310855, blue: 0.4068124152, alpha: 1)
+        setupRetroBackground()
         setupStackView()
     }
     
@@ -40,23 +40,26 @@ class StackViewController: UIViewController {
         stackView.backgroundColor = .white
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.0)
+        stackView.frame = CGRect(x: 0, y: 0, width: view.frame.width - CGFloat(20), height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.5)
         stackView.spacing = 0
         self.stackView = stackView
         interactor?.setupStackView()
         // Setup scroll view.
-        scrollView.setWidth(to: view.frame.width)
-        scrollView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
-        scrollView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        scrollView.layer.cornerRadius = 15
+        stackView.layer.cornerRadius = 15
+        scrollView.pinLeft(to: view, 10)
+        scrollView.pinRight(to: view, 10)
+        scrollView.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        scrollView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, 10)
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: view.frame.width, height: stackView.frame.height)
+        scrollView.contentSize = CGSize(width: view.frame.width - CGFloat(20), height: stackView.frame.height)
         scrollView.alwaysBounceVertical = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if (interactor?.alarmsUpdated() ?? false) {
             clearStackView()
-            stackView!.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.0)
+            stackView!.frame = CGRect(x: 0, y: 0, width: view.frame.width - CGFloat(20), height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.5)
             interactor?.setupStackView()
             interactor?.viewUpdated()
         }

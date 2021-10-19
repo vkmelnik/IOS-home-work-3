@@ -11,11 +11,24 @@ class AlarmView: UIView {
 
     public var toggle: UISwitch?
     private var time: UILabel?
+    public var gradient: CAGradientLayer?
     public var alarmModel: AlarmModel?
     
     init() {
         super.init(frame: CGRect(x: 0, y: 0, width: 200, height: 70))
+        let gradient = setupGradientBackground()
+        self.layer.masksToBounds = true
+        self.layer.addSublayer(gradient)
+        self.gradient = gradient
         setupAlarmView()
+    }
+    
+    override var bounds: CGRect {
+        didSet {
+            self.layer.sublayers![0].removeFromSuperlayer()
+            self.gradient = setupGradientBackground()
+            self.layer.insertSublayer(setupGradientBackground(), at: 0)
+        }
     }
     
     convenience init(alarm: AlarmModel) {
@@ -29,6 +42,7 @@ class AlarmView: UIView {
     
     func setupAlarmView() {
         let toggle = UISwitch()
+        toggle.makeRetroUI()
         let time = UILabel()
         time.text = "00:00"
         self.addSubview(toggle)
@@ -38,7 +52,6 @@ class AlarmView: UIView {
         time.pinLeft(to: self, 10)
         time.pinTop(to: self, 10)
         time.setHeight(to: 30)
-        toggle.onTintColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         self.toggle = toggle
         self.time = time
         self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)

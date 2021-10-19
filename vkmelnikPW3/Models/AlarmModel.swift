@@ -20,4 +20,10 @@ class AlarmModel {
         self.isActive = isActive
         self.time = time
     }
+    
+    func getFormatedTime() -> String {
+        let hours = time / 60
+        let minutes = time % 60
+        return "\(hours / 10)\(hours % 10):\(minutes / 10)\(minutes % 10)"
+    }
 }
