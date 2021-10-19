@@ -29,6 +29,10 @@ extension CollectionViewPresenter: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         alarmsContainer?.alarms.count ?? 0
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        interactor?.modifiyAlarm(index: indexPath.row)
+    }
 }
 
 extension CollectionViewPresenter: UICollectionViewDataSource {

@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func setupRetroBackground() {
+    func setupBackground() -> UIImageView {
         let retroBackground = UIImageView()
         self.view.addSubview(retroBackground)
         retroBackground.pinLeft(to: view)
@@ -16,18 +16,19 @@ extension UIViewController {
         retroBackground.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
         retroBackground.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
         retroBackground.contentMode = .scaleAspectFill
-        retroBackground.image = UIImage(named: "Background")
+        return retroBackground
+    }
+    
+    func setupRetroBackground() {
+        setupBackground().image = UIImage(named: "Background")
     }
     
     func setupRetroBackground2() {
-        let retroBackground = UIImageView()
-        self.view.addSubview(retroBackground)
-        retroBackground.pinLeft(to: view)
-        retroBackground.pinRight(to: view)
-        retroBackground.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
-        retroBackground.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
-        retroBackground.contentMode = .scaleAspectFill
-        retroBackground.image = UIImage(named: "Background2")
+        setupBackground().image = UIImage(named: "Background2")
+    }
+    
+    func setupRetroBackground3() {
+        setupBackground().image = UIImage(named: "Background3")
     }
 }
 
@@ -111,7 +112,6 @@ extension UISwitch {
 extension UIButton {
     
     func makeRetroUI() {
-        backgroundColor = #colorLiteral(red: 0, green: 0.5490196078, blue: 1, alpha: 1)
         let gradient = getGlass()
         layer.addSublayer(gradient)
     }

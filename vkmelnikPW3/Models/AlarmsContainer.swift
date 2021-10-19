@@ -16,4 +16,15 @@ class AlarmsContainer {
         alarms.sort(by: { $0.time < $1.time })
         wasUpdated = true
     }
+    
+    public func modAlarm(index: Int, newTime: Int) {
+        alarms[index].time = newTime
+        alarms.sort(by: { $0.time < $1.time })
+        wasUpdated = true
+    }
+    
+    public func removeAlarm(index: Int) {
+        alarms.remove(at: index)
+        wasUpdated = true
+    }
 }

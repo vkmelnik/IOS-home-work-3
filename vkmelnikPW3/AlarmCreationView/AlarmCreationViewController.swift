@@ -58,6 +58,7 @@ class AlarmCreationViewController: UIViewController {
         doneButton.setHeight(to: 50)
         doneButton.layer.cornerRadius = 15
         doneButton.layoutIfNeeded()
+        doneButton.backgroundColor = #colorLiteral(red: 0, green: 0.5490196078, blue: 1, alpha: 1)
         doneButton.makeRetroUI()
         doneButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         self.doneButton = doneButton

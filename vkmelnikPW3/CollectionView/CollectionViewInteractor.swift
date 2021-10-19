@@ -12,10 +12,12 @@ protocol CollectionViewBuisnessLogic {
     func getCollectionViewDelegate() -> UICollectionViewDelegate
     
     func switchChanged(index: Int, value: Bool)
+    func modifiyAlarm(index: Int)
 }
 
 final class CollectionViewInteractor {
     var presenter: CollectionViewPresentationLogic?
+    var router: CollectionViewRoutingLogic?
     var alarmsContainer: AlarmsContainer?
 }
 
@@ -35,5 +37,12 @@ extension CollectionViewInteractor: CollectionViewBuisnessLogic {
         } else {
             alarmsContainer?.alarms[index].isActive = false
         }
+    }
+    
+    func modifiyAlarm(index: Int) {
+        if (index >= (alarmsContainer?.alarms.count)!) {
+            return
+        }
+        router?.showModView(index: index)
     }
 }

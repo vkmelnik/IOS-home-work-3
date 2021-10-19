@@ -13,10 +13,12 @@ protocol StackViewBuisnessLogic {
     func viewUpdated()
     func setupStackView()
     func switchChanged(index: Int, value: Bool)
+    func modifiyAlarm(index: Int)
 }
 
 final class StackViewInteractor {
     var presenter: StackViewPresentationLogic?
+    var router: StackViewRoutingLogic?
     var alarmsContainer: AlarmsContainer?
 }
 
@@ -43,5 +45,12 @@ extension StackViewInteractor: StackViewBuisnessLogic {
     
     func viewUpdated() {
         alarmsContainer?.wasUpdated = false
+    }
+    
+    func modifiyAlarm(index: Int) {
+        if (index >= (alarmsContainer?.alarms.count)!) {
+            return
+        }
+        router?.showModView(index: index)
     }
 }

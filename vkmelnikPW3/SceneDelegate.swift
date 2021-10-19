@@ -35,20 +35,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         let tabBarController = UITabBarController()
+        let nav = UINavigationController()
         self.tabBarController = tabBarController
         
         let alarms = AlarmsContainer()
         generateAlarms(alarms: alarms)
         
         let viewControllers = [
-            StackViewAssembly().build(alarms: alarms),
-            TableViewAssembly().build(alarms: alarms),
-            CollectionViewAssembly().build(alarms: alarms),
+            StackViewAssembly().build(alarms: alarms, navigationController: nav),
+            TableViewAssembly().build(alarms: alarms, navigationController: nav),
+            CollectionViewAssembly().build(alarms: alarms, navigationController: nav),
             AlarmCreationViewAssembly().build(alarms: alarms, notificationManager: self)
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
         tabBarController.delegate = self
-        let nav = UINavigationController(rootViewController: tabBarController)
+        nav.pushViewController(tabBarController, animated: false)
+        //let nav = UINavigationController(rootViewController: tabBarController)
         window.rootViewController = nav
         self.window = window
         window.makeKeyAndVisible()

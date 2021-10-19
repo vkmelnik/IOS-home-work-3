@@ -81,6 +81,11 @@ class StackViewController: UIViewController {
 }
 
 extension StackViewController: StackViewDisplayLogic {
+    
+    @objc func someAction(_ sender:UITapGestureRecognizer){
+        interactor?.modifiyAlarm(index: sender.view!.tag)
+    }
+    
     func addAlarmToStack(alarm: AlarmModel, index: Int) {
         let alarmView = AlarmView(alarm: alarm)
         alarmView.toggle?.tag = index
@@ -88,5 +93,8 @@ extension StackViewController: StackViewDisplayLogic {
         stackView!.addArrangedSubview(alarmView)
         alarmView.pinRight(to: stackView!)
         alarmView.pinLeft(to: stackView!)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector (self.someAction (_:)))
+        alarmView.addGestureRecognizer(gesture)
+        gesture.view?.tag = index
     }
 }

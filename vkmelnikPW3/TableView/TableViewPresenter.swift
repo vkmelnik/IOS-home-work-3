@@ -30,6 +30,10 @@ extension TableViewPresenter: UITableViewDelegate {
         alarmsContainer?.alarms.count ?? 0
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        interactor?.modifiyAlarm(index: indexPath.row)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }

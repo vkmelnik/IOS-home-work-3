@@ -8,7 +8,7 @@
 import UIKit
 
 final class TableViewAssembly {
-    func build(alarms: AlarmsContainer) -> UIViewController {
+    func build(alarms: AlarmsContainer, navigationController: UINavigationController) -> UIViewController {
         let interactor = TableViewInteractor()
         let vc = TableViewController()
         vc.setupViewController(interactor: interactor)
@@ -19,6 +19,10 @@ final class TableViewAssembly {
         presenter.viewController = vc
         presenter.interactor = interactor
         
+        let router = TableViewRouter()
+        router.navigationController = navigationController
+        router.alarms = alarms
+        interactor.router = router
         return vc
     }
 }

@@ -12,10 +12,12 @@ protocol TableViewBuisnessLogic {
     func getTableViewDelegate() -> UITableViewDelegate
     
     func switchChanged(index: Int, value: Bool)
+    func modifiyAlarm(index: Int)
 }
 
 final class TableViewInteractor {    
     var presenter: TableViewPresentationLogic?
+    var router: TableViewRoutingLogic?
     var alarmsContainer: AlarmsContainer?
 }
 
@@ -37,5 +39,11 @@ extension TableViewInteractor: TableViewBuisnessLogic {
         return presenter as! UITableViewDelegate
     }
     
+    func modifiyAlarm(index: Int) {
+        if (index >= (alarmsContainer?.alarms.count)!) {
+            return
+        }
+        router?.showModView(index: index)
+    }
     
 }

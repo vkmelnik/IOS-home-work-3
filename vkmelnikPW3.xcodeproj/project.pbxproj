@@ -15,6 +15,10 @@
 		121AF172271DE1B900CC7DE9 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121AF171271DE1B900CC7DE9 /* UIExtensions.swift */; };
 		12272EEB2715BDC50042E483 /* EyeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12272EEA2715BDC50042E483 /* EyeCell.swift */; };
 		122FC562271ED90D00F7028C /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FC561271ED90D00F7028C /* NotificationView.swift */; };
+		122FC565271EF60200F7028C /* AlarmModificationViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FC564271EF60200F7028C /* AlarmModificationViewAssembly.swift */; };
+		122FC567271EF64B00F7028C /* AlarmModificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FC566271EF64B00F7028C /* AlarmModificationViewController.swift */; };
+		122FC569271EF71C00F7028C /* AlarmModificationViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FC568271EF71C00F7028C /* AlarmModificationViewInteractor.swift */; };
+		122FC56B271EFCF400F7028C /* AlarmModificationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122FC56A271EFCF400F7028C /* AlarmModificationViewPresenter.swift */; };
 		126FA7842714739D00C75C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7832714739D00C75C4F /* AppDelegate.swift */; };
 		126FA7862714739D00C75C4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7852714739D00C75C4F /* SceneDelegate.swift */; };
 		126FA7882714739D00C75C4F /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126FA7872714739D00C75C4F /* StackViewController.swift */; };
@@ -50,6 +54,10 @@
 		121AF171271DE1B900CC7DE9 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		12272EEA2715BDC50042E483 /* EyeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeCell.swift; sourceTree = "<group>"; };
 		122FC561271ED90D00F7028C /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		122FC564271EF60200F7028C /* AlarmModificationViewAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModificationViewAssembly.swift; sourceTree = "<group>"; };
+		122FC566271EF64B00F7028C /* AlarmModificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModificationViewController.swift; sourceTree = "<group>"; };
+		122FC568271EF71C00F7028C /* AlarmModificationViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModificationViewInteractor.swift; sourceTree = "<group>"; };
+		122FC56A271EFCF400F7028C /* AlarmModificationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmModificationViewPresenter.swift; sourceTree = "<group>"; };
 		126FA7802714739D00C75C4F /* vkmelnikPW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkmelnikPW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126FA7832714739D00C75C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		126FA7852714739D00C75C4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +108,17 @@
 			path = AlarmCreationView;
 			sourceTree = "<group>";
 		};
+		122FC563271EF57A00F7028C /* AlarmModificationView */ = {
+			isa = PBXGroup;
+			children = (
+				122FC564271EF60200F7028C /* AlarmModificationViewAssembly.swift */,
+				122FC566271EF64B00F7028C /* AlarmModificationViewController.swift */,
+				122FC568271EF71C00F7028C /* AlarmModificationViewInteractor.swift */,
+				122FC56A271EFCF400F7028C /* AlarmModificationViewPresenter.swift */,
+			);
+			path = AlarmModificationView;
+			sourceTree = "<group>";
+		};
 		126FA7772714739D00C75C4F = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +138,7 @@
 		126FA7822714739D00C75C4F /* vkmelnikPW3 */ = {
 			isa = PBXGroup;
 			children = (
+				122FC563271EF57A00F7028C /* AlarmModificationView */,
 				12104900271D82A2001F2430 /* AlarmCreationView */,
 				1281AFAB2718384400ADC41B /* Models */,
 				126FA7C22714872B00C75C4F /* View */,
@@ -265,6 +285,7 @@
 			files = (
 				126FA7C1271483B800C75C4F /* UIView_Pin.swift in Sources */,
 				126FA7B027147C3900C75C4F /* TableViewRouter.swift in Sources */,
+				122FC567271EF64B00F7028C /* AlarmModificationViewController.swift in Sources */,
 				1281AFAA271837F500ADC41B /* AlarmModel.swift in Sources */,
 				126FA7AF27147C3900C75C4F /* TableViewPresenter.swift in Sources */,
 				126FA7BF27147C6F00C75C4F /* CollectionViewAssembly.swift in Sources */,
@@ -282,7 +303,10 @@
 				126FA7A52714791900C75C4F /* StackViewRouter.swift in Sources */,
 				126FA7A42714791900C75C4F /* StackViewAssembly.swift in Sources */,
 				12104906271D836E001F2430 /* AlarmCreationViewPresenter.swift in Sources */,
+				122FC565271EF60200F7028C /* AlarmModificationViewAssembly.swift in Sources */,
+				122FC569271EF71C00F7028C /* AlarmModificationViewInteractor.swift in Sources */,
 				121AF172271DE1B900CC7DE9 /* UIExtensions.swift in Sources */,
+				122FC56B271EFCF400F7028C /* AlarmModificationViewPresenter.swift in Sources */,
 				12104904271D835F001F2430 /* AlarmCreationViewInteractor.swift in Sources */,
 				126FA7A72714791900C75C4F /* StackViewPresenter.swift in Sources */,
 				126FA7A32714791900C75C4F /* StackViewInteractor.swift in Sources */,

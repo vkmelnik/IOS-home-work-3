@@ -8,7 +8,7 @@
 import UIKit
 
 final class StackViewAssembly {
-    func build(alarms: AlarmsContainer) -> UIViewController {
+    func build(alarms: AlarmsContainer, navigationController: UINavigationController) -> UIViewController {
         let interactor = StackViewInteractor()
         let vc = StackViewController()
         vc.setupViewController(interactor: interactor)
@@ -17,6 +17,10 @@ final class StackViewAssembly {
         interactor.alarmsContainer = alarms
         presenter.viewController = vc
         
+        let router = StackViewRouter()
+        router.navigationController = navigationController
+        router.alarms = alarms
+        interactor.router = router
         return vc
     }
 }
