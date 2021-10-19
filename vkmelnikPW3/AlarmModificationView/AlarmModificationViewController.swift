@@ -17,6 +17,7 @@ class AlarmModificationViewController: UIViewController {
     private var timePicker: UIDatePicker?
     private var doneButton: UIButton?
     private var deleteButton: UIButton?
+    private var titleField: UITextField?
 
     func setupViewController(interactor: AlarmModificationViewBuisnessLogic) {
         self.interactor = interactor
@@ -36,6 +37,7 @@ class AlarmModificationViewController: UIViewController {
     }
     
     private func setupAlarmCreation() {
+        setupTitleField()
         setupTimePicker()
         setupDoneButton()
         setupDeleteButton()
@@ -48,7 +50,7 @@ class AlarmModificationViewController: UIViewController {
         let minute = components.minute!
         
         let time = hour * 60 + minute
-        interactor?.modifyAlarm(newTime: time)
+        interactor?.modifyAlarm(newTime: time, newTitle: titleField?.text ?? "Alarm")
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
@@ -69,7 +71,7 @@ class AlarmModificationViewController: UIViewController {
         doneButton.setHeight(to: 50)
         doneButton.layer.cornerRadius = 15
         doneButton.layoutIfNeeded()
-        doneButton.backgroundColor = #colorLiteral(red: 0, green: 0.5490196078, blue: 1, alpha: 1)
+        doneButton.backgroundColor = #colorLiteral(red: 0.4406444136, green: 0.5876471941, blue: 0.4853251793, alpha: 1)
         doneButton.makeRetroUI()
         doneButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
         self.doneButton = doneButton
@@ -85,7 +87,7 @@ class AlarmModificationViewController: UIViewController {
         deleteButton.setHeight(to: 50)
         deleteButton.layer.cornerRadius = 15
         deleteButton.layoutIfNeeded()
-        deleteButton.backgroundColor = #colorLiteral(red: 0.7249053752, green: 0.1528651036, blue: 0, alpha: 1)
+        deleteButton.backgroundColor = #colorLiteral(red: 0.4364689925, green: 0.09204080981, blue: 0, alpha: 1)
         deleteButton.makeRetroUI()
         deleteButton.addTarget(self, action: #selector(deleteButtonPressed), for: .touchUpInside)
         self.deleteButton = deleteButton
@@ -99,10 +101,23 @@ class AlarmModificationViewController: UIViewController {
         view.addSubview(timePicker)
         timePicker.pinLeft(to: view, 10)
         timePicker.pinRight(to: view, 10)
-        timePicker.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        timePicker.pinTop(to: titleField!.bottomAnchor, 10)
         timePicker.layoutIfNeeded()
         timePicker.makeRetroUI()
         self.timePicker = timePicker
+    }
+    
+    func setupTitleField() {
+        let titleField = UITextField()
+        titleField.borderStyle = .roundedRect
+        titleField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.9)
+        titleField.text = "Alarm"
+        view.addSubview(titleField)
+        titleField.pinLeft(to: view, 10)
+        titleField.pinRight(to: view, 10)
+        titleField.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        titleField.setHeight(to: 40)
+        self.titleField = titleField
     }
     
 }

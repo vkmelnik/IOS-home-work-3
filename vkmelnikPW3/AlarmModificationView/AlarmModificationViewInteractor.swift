@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AlarmModificationViewBuisnessLogic {
-    func modifyAlarm(newTime: Int)
+    func modifyAlarm(newTime: Int, newTitle: String)
     func removeAlarm()
     func setupTime()
 }
@@ -21,9 +21,9 @@ final class AlarmModificationViewInteractor {
 
 extension AlarmModificationViewInteractor: AlarmModificationViewBuisnessLogic {
     
-    func modifyAlarm(newTime: Int)  {
+    func modifyAlarm(newTime: Int, newTitle: String)  {
         if (indexInContainer < alarmsContainer!.alarms.count) {
-            alarmsContainer?.modAlarm(index: indexInContainer, newTime: newTime)
+            alarmsContainer?.modAlarm(index: indexInContainer, newTime: newTime, newTitle: newTitle)
         }
     }
     

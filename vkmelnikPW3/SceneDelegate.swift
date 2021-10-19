@@ -80,48 +80,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
         not.isHidden = true
         self.notificationView = not
     }
-    
-    func setupRetroNavBar(nav: UINavigationController) {
-        let gradient = CAGradientLayer()
-        let colors = [#colorLiteral(red: 0.456004262, green: 0.4560155272, blue: 0.4560095072, alpha: 1), #colorLiteral(red: 0.2275663614, green: 0.2227186561, blue: 0.2226118743, alpha: 1), #colorLiteral(red: 0.1129432991, green: 0.1129470244, blue: 0.1129450426, alpha: 1), #colorLiteral(red: 0.03797400743, green: 0.03797602281, blue: 0.03797493502, alpha: 1)]
-        var bounds = nav.navigationBar.bounds
-        let statusBarHeight = window!.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        bounds.size.height += statusBarHeight
-        bounds.origin.y -= statusBarHeight
-        gradient.frame = bounds
-        gradient.colors = [colors[0].cgColor, colors[1].cgColor, colors[2].cgColor, colors[3].cgColor]
-        gradient.locations = [0.0, 0.65, 0.7, 1.0]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 1)
-
-        nav.navigationBar.layer.addSublayer(gradient)
-        // Sublayer[1] is a title.
-        // Inserting sublayer doesn't work, title is above gradient in the debuger,
-        // but below gradient in simulator.
-        nav.navigationBar.layer.sublayers![1].zPosition = 2
-        nav.navigationBar.tintColor = .white
-        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    }
-    
-    func setupRetroTabBar(tab: UITabBarController) {
-        let gradient = CAGradientLayer()
-        let colors = [#colorLiteral(red: 0.456004262, green: 0.4560155272, blue: 0.4560095072, alpha: 1), #colorLiteral(red: 0.2275663614, green: 0.2227186561, blue: 0.2226118743, alpha: 1), #colorLiteral(red: 0.1129432991, green: 0.1129470244, blue: 0.1129450426, alpha: 1), #colorLiteral(red: 0.03797400743, green: 0.03797602281, blue: 0.03797493502, alpha: 1)]
-        let bounds = tab.tabBar.bounds
-        let insets = window?.safeAreaInsets.bottom ?? 0
-        let height = bounds.height
-        gradient.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: height + insets)
-        gradient.colors = [colors[0].cgColor, colors[1].cgColor, colors[2].cgColor, colors[3].cgColor]
-        let offset1: Float = Float(0.45 * height / (insets + height))
-        let offset2: Float = Float(0.55 * height / (insets + height))
-        let locations: [NSNumber] = [NSNumber(value: 0.0), NSNumber(value: offset1), NSNumber(value: offset2), NSNumber(value: 1.0)]
-        gradient.locations = locations
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 1)
-
-        tab.tabBar.layer.insertSublayer(gradient, at: 0)
-        tab.tabBar.tintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        tab.tabBar.unselectedItemTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
@@ -163,5 +121,51 @@ extension SceneDelegate {
         self.notificationView?.text = text
         self.notificationView!.frame.origin.y = -120
         self.notificationView?.showAnimation()
+    }
+    
+    func setupRetroNavBar(nav: UINavigationController) {
+        let gradient = CAGradientLayer()
+        let colors = [#colorLiteral(red: 0.456004262, green: 0.4560155272, blue: 0.4560095072, alpha: 1), #colorLiteral(red: 0.2275663614, green: 0.2227186561, blue: 0.2226118743, alpha: 1), #colorLiteral(red: 0.1129432991, green: 0.1129470244, blue: 0.1129450426, alpha: 1), #colorLiteral(red: 0.03797400743, green: 0.03797602281, blue: 0.03797493502, alpha: 1)]
+        var bounds = nav.navigationBar.bounds
+        let statusBarHeight = window!.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+        bounds.size.height += statusBarHeight
+        bounds.origin.y -= statusBarHeight
+        gradient.frame = bounds
+        gradient.colors = [colors[0].cgColor, colors[1].cgColor, colors[2].cgColor, colors[3].cgColor]
+        gradient.locations = [0.0, 0.65, 0.7, 1.0]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+
+        nav.navigationBar.layer.addSublayer(gradient)
+        // Sublayer[1] is a title.
+        // Inserting sublayer doesn't work, title is above gradient in the debuger,
+        // but below gradient in simulator.
+        nav.navigationBar.layer.sublayers![1].zPosition = 2
+        nav.navigationBar.tintColor = .white
+        nav.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
+    func setupRetroTabBar(tab: UITabBarController) {
+        let gradient = CAGradientLayer()
+        let colors = [#colorLiteral(red: 0.8878544906, green: 0.8878544906, blue: 0.8878544906, alpha: 0.3804339311), #colorLiteral(red: 1, green: 0.98, blue: 0.98, alpha: 0.1312357986), #colorLiteral(red: 0.4968468549, green: 0.4968468549, blue: 0.4968468549, alpha: 0.06256542056), #colorLiteral(red: 0.03797400743, green: 0.03797602281, blue: 0.03797493502, alpha: 0)]
+        let bounds = tab.tabBar.bounds
+        let insets = window?.safeAreaInsets.bottom ?? 0
+        let height = bounds.height
+        gradient.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: height + insets)
+        gradient.colors = [colors[0].cgColor, colors[1].cgColor, colors[2].cgColor, colors[3].cgColor]
+        let offset1: Float = Float(0.45 * height / (insets + height))
+        let offset2: Float = Float(0.55 * height / (insets + height))
+        let locations: [NSNumber] = [NSNumber(value: 0.0), NSNumber(value: offset1), NSNumber(value: offset2), NSNumber(value: 1.0)]
+        gradient.locations = locations
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+
+        let backLayer = CALayer()
+        backLayer.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: height + insets)
+        backLayer.backgroundColor = UIColor.black.cgColor
+        tab.tabBar.layer.insertSublayer(backLayer, at: 0)
+        tab.tabBar.layer.addSublayer(gradient)
+        tab.tabBar.tintColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        tab.tabBar.unselectedItemTintColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
 }

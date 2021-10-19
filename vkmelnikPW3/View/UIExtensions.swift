@@ -35,7 +35,7 @@ extension UIViewController {
 extension UIView {
     func setupGradientBackground() -> CAGradientLayer {
         let gradient = CAGradientLayer()
-        let colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), #colorLiteral(red: 0.9432428479, green: 0.9432428479, blue: 0.9432428479, alpha: 1)]
+        let colors = [#colorLiteral(red: 0.9558096851, green: 0.9558096851, blue: 0.9558096851, alpha: 1), #colorLiteral(red: 0.7920269633, green: 0.7920269633, blue: 0.7920269633, alpha: 1)]
         let bounds = self.bounds
         gradient.frame = bounds
         gradient.colors = [colors[0].cgColor, colors[1].cgColor]
@@ -93,6 +93,7 @@ extension UIView {
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 0, y: 1)
         gradient.cornerRadius = self.bounds.height / 2
+        gradient.masksToBounds = true
         gradient.addSublayer(getReflection())
         return gradient
     }
@@ -113,7 +114,13 @@ extension UIButton {
     
     func makeRetroUI() {
         let gradient = getGlass()
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 1
         layer.addSublayer(gradient)
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
     }
     
 }
@@ -158,7 +165,7 @@ extension UIDatePicker {
         backgroundColor = .white
         layer.cornerRadius = 15
         layer.masksToBounds = true
-        layer.borderWidth = 1
+        layer.borderWidth = 2
         layer.borderColor = UIColor.darkGray.cgColor
         layer.addSublayer(getShade())
         layer.addSublayer(getGlass3())

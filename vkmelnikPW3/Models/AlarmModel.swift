@@ -10,6 +10,7 @@ import Foundation
 class AlarmModel {
     public var isActive: Bool = false
     public var time: Int = 0
+    public var title: String = "Alarm"
     
     init() {
 

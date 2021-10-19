@@ -9,7 +9,7 @@ import UIKit
 
 protocol AlarmCreationViewBuisnessLogic {
     func showNotification(title: String, text: String)
-    func createAlarm(time: Int)
+    func createAlarm(time: Int, title: String)
 }
 
 final class AlarmCreationViewInteractor {
@@ -23,8 +23,9 @@ extension AlarmCreationViewInteractor: AlarmCreationViewBuisnessLogic {
         notificationManager?.showNotification(title: title, text: text)
     }
     
-    func createAlarm(time: Int)  {
+    func createAlarm(time: Int, title: String)  {
         let newAlarm = AlarmModel(time: time, isActive: false)
+        newAlarm.title = title
         alarmsContainer?.addAlarm(alarm: newAlarm)
         notificationManager?.showNotification(title: "Success", text: "Alarm for \(newAlarm.getFormatedTime()) is created")
     }

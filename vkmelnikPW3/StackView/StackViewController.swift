@@ -15,6 +15,7 @@ class StackViewController: UIViewController {
     
     private var interactor: StackViewBuisnessLogic?
     private var stackView: UIStackView?
+    private var scrollView: UIScrollView?
     
     func setupViewController(interactor: StackViewBuisnessLogic) {
         self.interactor = interactor
@@ -40,7 +41,7 @@ class StackViewController: UIViewController {
         stackView.backgroundColor = .white
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.frame = CGRect(x: 0, y: 0, width: view.frame.width - CGFloat(20), height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.5)
+        stackView.frame = CGRect(x: 0, y: 0, width: view.frame.width - CGFloat(20), height: CGFloat(interactor?.alarmsCount() ?? 0) * 90.5)
         stackView.spacing = 0
         self.stackView = stackView
         interactor?.setupStackView()
@@ -54,12 +55,14 @@ class StackViewController: UIViewController {
         scrollView.isScrollEnabled = true
         scrollView.contentSize = CGSize(width: view.frame.width - CGFloat(20), height: stackView.frame.height)
         scrollView.alwaysBounceVertical = true
+        self.scrollView = scrollView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         if (interactor?.alarmsUpdated() ?? false) {
             clearStackView()
-            stackView!.frame = CGRect(x: 0, y: 0, width: view.frame.width - CGFloat(20), height: CGFloat(interactor?.alarmsCount() ?? 0) * 50.5)
+            stackView!.frame = CGRect(x: 0, y: 0, width: view.frame.width - CGFloat(20), height: CGFloat(interactor?.alarmsCount() ?? 0) * 90.5)
+            scrollView?.contentSize = CGSize(width: view.frame.width - CGFloat(20), height: stackView!.frame.height)
             interactor?.setupStackView()
             interactor?.viewUpdated()
         }

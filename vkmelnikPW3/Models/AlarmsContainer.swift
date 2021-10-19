@@ -17,8 +17,9 @@ class AlarmsContainer {
         wasUpdated = true
     }
     
-    public func modAlarm(index: Int, newTime: Int) {
+    public func modAlarm(index: Int, newTime: Int, newTitle: String) {
         alarms[index].time = newTime
+        alarms[index].title = newTitle
         alarms.sort(by: { $0.time < $1.time })
         wasUpdated = true
     }

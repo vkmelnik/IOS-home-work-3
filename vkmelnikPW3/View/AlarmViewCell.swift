@@ -12,8 +12,8 @@ class AlarmViewCell: UITableViewCell {
     public var alarmView: AlarmView?
     
     func setupAlarmView(alarmModel: AlarmModel) {
-        setHeight(to: 50)
-        contentView.setHeight(to: 50)
+        setHeight(to: 90)
+        contentView.setHeight(to: 90)
         let view = AlarmView(alarm: alarmModel)
         contentView.addSubview(view)
         view.pin(to: contentView)

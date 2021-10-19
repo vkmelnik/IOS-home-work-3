@@ -16,6 +16,7 @@ class AlarmCreationViewController: UIViewController {
     private var interactor: AlarmCreationViewBuisnessLogic?
     private var timePicker: UIDatePicker?
     private var doneButton: UIButton?
+    private var titleField: UITextField?
 
     func setupViewController(interactor: AlarmCreationViewBuisnessLogic) {
         self.interactor = interactor
@@ -34,6 +35,7 @@ class AlarmCreationViewController: UIViewController {
     }
     
     private func setupAlarmCreation() {
+        setupTitleField()
         setupTimePicker()
         setupDoneButton()
     }
@@ -45,7 +47,7 @@ class AlarmCreationViewController: UIViewController {
         let minute = components.minute!
         
         let time = hour * 60 + minute
-        interactor?.createAlarm(time: time)
+        interactor?.createAlarm(time: time, title: titleField?.text ?? "Alarm")
     }
     
     private func setupDoneButton() {
@@ -58,7 +60,7 @@ class AlarmCreationViewController: UIViewController {
         doneButton.setHeight(to: 50)
         doneButton.layer.cornerRadius = 15
         doneButton.layoutIfNeeded()
-        doneButton.backgroundColor = #colorLiteral(red: 0, green: 0.5490196078, blue: 1, alpha: 1)
+        doneButton.backgroundColor = #colorLiteral(red: 0.3344596538, green: 0.3641954376, blue: 0.4409706901, alpha: 1)
         doneButton.makeRetroUI()
         doneButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         self.doneButton = doneButton
@@ -72,10 +74,23 @@ class AlarmCreationViewController: UIViewController {
         view.addSubview(timePicker)
         timePicker.pinLeft(to: view, 10)
         timePicker.pinRight(to: view, 10)
-        timePicker.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        timePicker.pinTop(to: titleField!.bottomAnchor, 10)
         timePicker.layoutIfNeeded()
         timePicker.makeRetroUI()
         self.timePicker = timePicker
+    }
+    
+    func setupTitleField() {
+        let titleField = UITextField()
+        titleField.borderStyle = .roundedRect
+        titleField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.9)
+        titleField.text = "Alarm"
+        view.addSubview(titleField)
+        titleField.pinLeft(to: view, 10)
+        titleField.pinRight(to: view, 10)
+        titleField.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        titleField.setHeight(to: 40)
+        self.titleField = titleField
     }
 }
 
