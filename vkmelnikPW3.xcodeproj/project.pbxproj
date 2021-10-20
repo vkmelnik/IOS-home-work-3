@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1213672D2720346500B33D80 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1213672C2720346500B33D80 /* NotificationManager.swift */; };
 		12767F9A271F2BA800A6EE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12767F98271F2BA800A6EE9B /* LaunchScreen.storyboard */; };
 		12767FA6271F2BF900A6EE9B /* AlarmCreationViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12767FA2271F2BF900A6EE9B /* AlarmCreationViewAssembly.swift */; };
 		12767FA7271F2BF900A6EE9B /* AlarmCreationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12767FA3271F2BF900A6EE9B /* AlarmCreationViewPresenter.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1213672C2720346500B33D80 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		12767F8A271F2BA200A6EE9B /* vkmelnikPW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkmelnikPW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12767F99271F2BA800A6EE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12767F9B271F2BA800A6EE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				12767FA1271F2BF900A6EE9B /* AlarmCreationView */,
 				12767F98271F2BA800A6EE9B /* LaunchScreen.storyboard */,
 				12767F9B271F2BA800A6EE9B /* Info.plist */,
+				1213672C2720346500B33D80 /* NotificationManager.swift */,
 			);
 			path = vkmelnikPW3;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				12767FEB271F2C3300A6EE9B /* TableViewController.swift in Sources */,
 				12767FE6271F2C3300A6EE9B /* StackViewController.swift in Sources */,
 				12767FA6271F2BF900A6EE9B /* AlarmCreationViewAssembly.swift in Sources */,
+				1213672D2720346500B33D80 /* NotificationManager.swift in Sources */,
 				12767FEA271F2C3300A6EE9B /* TableViewInteractor.swift in Sources */,
 				12767FDD271F2C3300A6EE9B /* EyeCell.swift in Sources */,
 			);

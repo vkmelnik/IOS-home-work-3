@@ -26,8 +26,16 @@ extension TableViewInteractor: TableViewBuisnessLogic {
         alarmsContainer?.wasUpdated = true
         if (value) {
             alarmsContainer?.alarms[index].isActive = true
+            let alarm = alarmsContainer!.alarms[index];
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.notificationManager.scheduleNotification(alarmTitle: alarm.title, time: alarm.getFormatedTime(), identifier: alarm.id)
+            }
         } else {
             alarmsContainer?.alarms[index].isActive = false
+            let alarm = alarmsContainer!.alarms[index];
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.notificationManager.unscheduleNotification(identifier: alarm.id)
+            }
         }
     }
     

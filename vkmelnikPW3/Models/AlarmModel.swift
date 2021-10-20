@@ -5,15 +5,18 @@
 //  Created by Vsevolod Melnik on 14.10.2021.
 //
 
-import Foundation
+import UIKit
 
 class AlarmModel {
-    public var isActive: Bool = false
-    public var time: Int = 0
+    static var newId: Int = 0
     public var title: String = "Alarm"
+    public var time: Int = 0;
+    public var isActive: Bool = false
+    public var id: Int
     
     init() {
-
+        self.id = AlarmModel.newId
+        AlarmModel.newId += 1
     }
     
     convenience init(time: Int, isActive: Bool) {

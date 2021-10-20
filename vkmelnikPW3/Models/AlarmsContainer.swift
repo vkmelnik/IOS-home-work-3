@@ -5,7 +5,7 @@
 //  Created by Vsevolod Melnik on 14.10.2021.
 //
 
-import Foundation
+import UIKit
 
 class AlarmsContainer {
     public var alarms: [AlarmModel] = []
@@ -27,5 +27,20 @@ class AlarmsContainer {
     public func removeAlarm(index: Int) {
         alarms.remove(at: index)
         wasUpdated = true
+    }
+}
+
+extension AlarmsContainer {
+    
+    // Set notifications for all active alarms.
+    func setAlarms() {
+        for i in 0..<alarms.count {
+            if (alarms[i].isActive) {
+                let alarm = alarms[i];
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                    appDelegate.notificationManager.scheduleNotification(alarmTitle: alarm.title, time: alarm.getFormatedTime(), identifier: alarm.id)
+                }
+            }
+        }
     }
 }
