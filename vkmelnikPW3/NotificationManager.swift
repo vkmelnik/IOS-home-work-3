@@ -33,7 +33,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         let content = UNMutableNotificationContent() // Содержимое уведомления
         
         content.title = "Alarm"
-        content.body = "\(alarm.title)"
+        content.body = "\(alarm.title!)"
         content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: NotificationManager.sounds[Int(alarm.soundNumber)]))
         content.badge = 1
         
