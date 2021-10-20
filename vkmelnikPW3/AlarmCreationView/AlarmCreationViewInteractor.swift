@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol AlarmCreationViewBuisnessLogic {
     func showNotification(title: String, text: String)
@@ -19,6 +20,7 @@ final class AlarmCreationViewInteractor {
     var presenter: AlarmCreationViewPresentationLogic?
     var alarmsContainer: AlarmsContainer?
     var notificationManager: RetroNotificationManager?
+    var context: NSManagedObjectContext?
 }
 
 extension AlarmCreationViewInteractor: AlarmCreationViewBuisnessLogic {
@@ -27,9 +29,9 @@ extension AlarmCreationViewInteractor: AlarmCreationViewBuisnessLogic {
     }
     
     func createAlarm(time: Int, title: String, sound: Int)  {
-        let newAlarm = AlarmModel(time: time, isActive: false)
+        let newAlarm = AlarmModel.createAlarm(context: context!, time: time, isActive: false)
         newAlarm.title = title
-        newAlarm.soundNumber = sound
+        newAlarm.soundNumber = Int16(sound)
         alarmsContainer?.addAlarm(alarm: newAlarm)
         notificationManager?.showNotification(title: "Success", text: "Alarm for \(newAlarm.getFormatedTime()) is created")
     }

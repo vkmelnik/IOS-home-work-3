@@ -34,9 +34,10 @@ extension StackViewInteractor: StackViewBuisnessLogic {
             alarmsContainer?.alarms[index].isActive = false
             let alarm = alarmsContainer!.alarms[index];
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                appDelegate.notificationManager.unscheduleNotification(identifier: alarm.id)
+                appDelegate.notificationManager.unscheduleNotification(identifier: Int(alarm.id))
             }
         }
+        alarmsContainer?.saveContext()
     }
     
     func alarmsCount() -> Int {

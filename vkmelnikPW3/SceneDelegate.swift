@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol RetroNotificationManager {
     func showNotification(title: String, text: String)
@@ -16,10 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
     var window: UIWindow?
     var tabBarController: UITabBarController?
     var notificationView: NotificationView?
+    var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "AlarmModel")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    var context: NSManagedObjectContext?
 
-    func generateAlarms(alarms: AlarmsContainer) {
+    func generateAlarms(alarms: AlarmsContainer, context: NSManagedObjectContext) {
         for _ in 0..<10 {
-            alarms.alarms.append( AlarmModel(
+            alarms.alarms.append( AlarmModel.createAlarm(context: context,
                 time: Int.random(in: 0...1440),
                 isActive: Bool.random()
                 )
@@ -39,14 +50,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UITabBarControllerDeleg
         let nav = UINavigationController()
         self.tabBarController = tabBarController
         
+        let context = persistentContainer.viewContext
+        self.context = context
         let alarms = AlarmsContainer()
-        generateAlarms(alarms: alarms)
+        alarms.context = context
+        alarms.loadContainer()
         
         let viewControllers = [
             StackViewAssembly().build(alarms: alarms, navigationController: nav),
             TableViewAssembly().build(alarms: alarms, navigationController: nav),
             CollectionViewAssembly().build(alarms: alarms, navigationController: nav),
-            AlarmCreationViewAssembly().build(alarms: alarms, notificationManager: self)
+            AlarmCreationViewAssembly().build(alarms: alarms, notificationManager: self, context: context)
         ]
         tabBarController.setViewControllers(viewControllers, animated: false)
         tabBarController.delegate = self

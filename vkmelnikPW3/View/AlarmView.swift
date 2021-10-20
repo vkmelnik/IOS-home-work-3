@@ -49,7 +49,7 @@ class AlarmView: UIView {
         let hours = alarmModel!.time / 60
         let minutes = alarmModel!.time % 60
         time?.text = "\(hours / 10)\(hours % 10):\(minutes / 10)\(minutes % 10)"
-        alarmTitle = alarm.title
+        alarmTitle = alarm.title!
     }
     
     func setupAlarmView() {

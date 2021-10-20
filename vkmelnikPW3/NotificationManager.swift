@@ -34,7 +34,7 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         
         content.title = "Alarm"
         content.body = "\(alarm.title)"
-        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: NotificationManager.sounds[alarm.soundNumber]))
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: NotificationManager.sounds[Int(alarm.soundNumber)]))
         content.badge = 1
         
         let dateFormatter = DateFormatter()

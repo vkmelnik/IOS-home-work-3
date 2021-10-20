@@ -30,7 +30,7 @@ extension AlarmModificationViewInteractor: AlarmModificationViewBuisnessLogic {
             if (alarmsContainer!.alarms[indexInContainer].isActive) {
                 let alarm = alarmsContainer!.alarms[indexInContainer];
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                    appDelegate.notificationManager.unscheduleNotification(identifier: alarm.id)
+                    appDelegate.notificationManager.unscheduleNotification(identifier: Int(alarm.id))
                     appDelegate.notificationManager.scheduleNotification(alarm: alarm)
                 }
             }
@@ -42,7 +42,7 @@ extension AlarmModificationViewInteractor: AlarmModificationViewBuisnessLogic {
             if (alarmsContainer!.alarms[indexInContainer].isActive) {
                 let alarm = alarmsContainer!.alarms[indexInContainer];
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                    appDelegate.notificationManager.unscheduleNotification(identifier: alarm.id)
+                    appDelegate.notificationManager.unscheduleNotification(identifier: Int(alarm.id))
                 }
             }
             alarmsContainer?.removeAlarm(index: indexInContainer)
@@ -50,9 +50,9 @@ extension AlarmModificationViewInteractor: AlarmModificationViewBuisnessLogic {
     }
     
     func setupAlarm() {
-        presenter?.setupTitle(title: alarmsContainer!.alarms[indexInContainer].title)
-        presenter?.setupSound(sound: alarmsContainer!.alarms[indexInContainer].soundNumber)
-        presenter?.setupTime(time: alarmsContainer!.alarms[indexInContainer].time)
+        presenter?.setupTitle(title: alarmsContainer!.alarms[indexInContainer].title!)
+        presenter?.setupSound(sound: Int(alarmsContainer!.alarms[indexInContainer].soundNumber))
+        presenter?.setupTime(time: Int(alarmsContainer!.alarms[indexInContainer].time))
     }
     
     func getPickerDelegate() -> UIPickerViewDelegate {
