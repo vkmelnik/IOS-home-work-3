@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1213672D2720346500B33D80 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1213672C2720346500B33D80 /* NotificationManager.swift */; };
+		121367332720567400B33D80 /* iphone_alarm1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 121367322720567400B33D80 /* iphone_alarm1.mp3 */; };
+		12136735272056CC00B33D80 /* iphone_alarm2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 12136734272056CC00B33D80 /* iphone_alarm2.mp3 */; };
+		12136737272056D100B33D80 /* iphone_alarm3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 12136736272056D100B33D80 /* iphone_alarm3.mp3 */; };
 		12767F9A271F2BA800A6EE9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12767F98271F2BA800A6EE9B /* LaunchScreen.storyboard */; };
 		12767FA6271F2BF900A6EE9B /* AlarmCreationViewAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12767FA2271F2BF900A6EE9B /* AlarmCreationViewAssembly.swift */; };
 		12767FA7271F2BF900A6EE9B /* AlarmCreationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12767FA3271F2BF900A6EE9B /* AlarmCreationViewPresenter.swift */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		1213672C2720346500B33D80 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		121367322720567400B33D80 /* iphone_alarm1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iphone_alarm1.mp3; sourceTree = "<group>"; };
+		12136734272056CC00B33D80 /* iphone_alarm2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iphone_alarm2.mp3; sourceTree = "<group>"; };
+		12136736272056D100B33D80 /* iphone_alarm3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = iphone_alarm3.mp3; sourceTree = "<group>"; };
 		12767F8A271F2BA200A6EE9B /* vkmelnikPW3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkmelnikPW3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12767F99271F2BA800A6EE9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12767F9B271F2BA800A6EE9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +124,9 @@
 		12767F8C271F2BA200A6EE9B /* vkmelnikPW3 */ = {
 			isa = PBXGroup;
 			children = (
+				121367322720567400B33D80 /* iphone_alarm1.mp3 */,
+				12136734272056CC00B33D80 /* iphone_alarm2.mp3 */,
+				12136736272056D100B33D80 /* iphone_alarm3.mp3 */,
 				12767FB3271F2C3200A6EE9B /* AppDelegate.swift */,
 				12767FBB271F2C3200A6EE9B /* Assets.xcassets */,
 				12767FB5271F2C3200A6EE9B /* CollectionView */,
@@ -273,8 +282,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12136735272056CC00B33D80 /* iphone_alarm2.mp3 in Resources */,
 				12767FDA271F2C3300A6EE9B /* Assets.xcassets in Resources */,
+				121367332720567400B33D80 /* iphone_alarm1.mp3 in Resources */,
 				12767F9A271F2BA800A6EE9B /* LaunchScreen.storyboard in Resources */,
+				12136737272056D100B33D80 /* iphone_alarm3.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

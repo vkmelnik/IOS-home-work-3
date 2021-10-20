@@ -8,9 +8,12 @@
 import UIKit
 
 protocol AlarmModificationViewBuisnessLogic {
-    func modifyAlarm(newTime: Int, newTitle: String)
+    func modifyAlarm(newTime: Int, newTitle: String, newSound: Int)
     func removeAlarm()
-    func setupTime()
+    func setupAlarm()
+    
+    func getPickerDelegate() -> UIPickerViewDelegate
+    func getPickerDataSource() -> UIPickerViewDataSource
 }
 
 final class AlarmModificationViewInteractor {
@@ -21,14 +24,14 @@ final class AlarmModificationViewInteractor {
 
 extension AlarmModificationViewInteractor: AlarmModificationViewBuisnessLogic {
     
-    func modifyAlarm(newTime: Int, newTitle: String)  {
+    func modifyAlarm(newTime: Int, newTitle: String, newSound: Int)  {
         if (indexInContainer < alarmsContainer!.alarms.count) {
-            alarmsContainer?.modAlarm(index: indexInContainer, newTime: newTime, newTitle: newTitle)
+            alarmsContainer?.modAlarm(index: indexInContainer, newTime: newTime, newTitle: newTitle, newSound: newSound)
             if (alarmsContainer!.alarms[indexInContainer].isActive) {
                 let alarm = alarmsContainer!.alarms[indexInContainer];
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                     appDelegate.notificationManager.unscheduleNotification(identifier: alarm.id)
-                    appDelegate.notificationManager.scheduleNotification(alarmTitle: alarm.title, time: alarm.getFormatedTime(), identifier: alarm.id)
+                    appDelegate.notificationManager.scheduleNotification(alarm: alarm)
                 }
             }
         }
@@ -46,7 +49,17 @@ extension AlarmModificationViewInteractor: AlarmModificationViewBuisnessLogic {
         }
     }
     
-    func setupTime() {
+    func setupAlarm() {
+        presenter?.setupTitle(title: alarmsContainer!.alarms[indexInContainer].title)
+        presenter?.setupSound(sound: alarmsContainer!.alarms[indexInContainer].soundNumber)
         presenter?.setupTime(time: alarmsContainer!.alarms[indexInContainer].time)
+    }
+    
+    func getPickerDelegate() -> UIPickerViewDelegate {
+        return presenter as! UIPickerViewDelegate
+    }
+    
+    func getPickerDataSource() -> UIPickerViewDataSource {
+        return presenter as! UIPickerViewDataSource
     }
 }

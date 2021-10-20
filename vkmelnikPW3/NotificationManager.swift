@@ -10,6 +10,8 @@ import UIKit
 // Class that manages all notifications in the app.
 class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
+    static let sounds: [String] = ["iphone_alarm1.mp3", "iphone_alarm2.mp3", "iphone_alarm3.mp3"]
+    
     // Notification center.
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -26,22 +28,22 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     // Add notification to notification center.
-    func scheduleNotification(alarmTitle: String, time: String, identifier: Int) {
+    func scheduleNotification(alarm: AlarmModel) {
         
         let content = UNMutableNotificationContent() // Содержимое уведомления
         
         content.title = "Alarm"
-        content.body = "\(alarmTitle)"
-        content.sound = UNNotificationSound.default
+        content.body = "\(alarm.title)"
+        content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: NotificationManager.sounds[alarm.soundNumber]))
         content.badge = 1
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "HH:mm"
-        let date = dateFormatter.date(from: time)
+        let date = dateFormatter.date(from: alarm.getFormatedTime())
         let triggerDaily = Calendar.current.dateComponents([.hour,.minute], from: date!)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
         
-        let identifier = "Alarm number \(identifier)"
+        let identifier = "Alarm number \(alarm.id)"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
 
         notificationCenter.add(request) { (error) in

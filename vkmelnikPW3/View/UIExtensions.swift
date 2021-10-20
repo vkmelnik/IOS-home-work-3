@@ -98,35 +98,6 @@ extension UIView {
         return gradient
     }
     
-}
-
-extension UISwitch {
-    
-    func makeRetroUI() {
-        thumbTintColor = UIColor(patternImage: getThumbGradient().createGradientImage(size: self.bounds.size)!)
-        onTintColor = #colorLiteral(red: 0.003921568627, green: 0.4549019608, blue: 1, alpha: 1)
-        layer.addSublayer(getGlass())
-    }
-    
-}
-
-extension UIButton {
-    
-    func makeRetroUI() {
-        let gradient = getGlass()
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 1
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowRadius = 1
-        layer.addSublayer(gradient)
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.black.cgColor
-    }
-    
-}
-
-extension UIDatePicker {
-    
     func getShade() -> CAGradientLayer {
         let gradient = CAGradientLayer()
         let colors = [#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3128407396), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3049552497)]
@@ -161,7 +132,7 @@ extension UIDatePicker {
         return layer
     }
     
-    func makeRetroUI() {
+    func makeRetroPicker() {
         backgroundColor = .white
         layer.cornerRadius = 15
         layer.masksToBounds = true
@@ -170,6 +141,30 @@ extension UIDatePicker {
         layer.addSublayer(getShade())
         layer.addSublayer(getGlass3())
         layer.addSublayer(getGlass2())
+    }
+}
+
+extension UISwitch {
+    
+    func makeRetroUI() {
+        thumbTintColor = UIColor(patternImage: getThumbGradient().createGradientImage(size: self.bounds.size)!)
+        onTintColor = #colorLiteral(red: 0.003921568627, green: 0.4549019608, blue: 1, alpha: 1)
+        layer.addSublayer(getGlass())
+    }
+    
+}
+
+extension UIButton {
+    
+    func makeRetroUI() {
+        let gradient = getGlass()
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 0, height: 0)
+        layer.shadowRadius = 1
+        layer.addSublayer(gradient)
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
     }
     
 }

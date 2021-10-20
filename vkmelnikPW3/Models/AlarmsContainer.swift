@@ -17,9 +17,10 @@ class AlarmsContainer {
         wasUpdated = true
     }
     
-    public func modAlarm(index: Int, newTime: Int, newTitle: String) {
+    public func modAlarm(index: Int, newTime: Int, newTitle: String, newSound: Int) {
         alarms[index].time = newTime
         alarms[index].title = newTitle
+        alarms[index].soundNumber = newSound
         alarms.sort(by: { $0.time < $1.time })
         wasUpdated = true
     }
@@ -38,7 +39,7 @@ extension AlarmsContainer {
             if (alarms[i].isActive) {
                 let alarm = alarms[i];
                 if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-                    appDelegate.notificationManager.scheduleNotification(alarmTitle: alarm.title, time: alarm.getFormatedTime(), identifier: alarm.id)
+                    appDelegate.notificationManager.scheduleNotification(alarm: alarm)
                 }
             }
         }

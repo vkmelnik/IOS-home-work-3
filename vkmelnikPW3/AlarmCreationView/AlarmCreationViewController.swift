@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AlarmCreationViewDisplayLogic {
-    
+    func setChosenSound(soundNumber: Int)
 }
 
 class AlarmCreationViewController: UIViewController {
@@ -17,6 +17,9 @@ class AlarmCreationViewController: UIViewController {
     private var timePicker: UIDatePicker?
     private var doneButton: UIButton?
     private var titleField: UITextField?
+    private var soundPicker: UIPickerView?
+    
+    public var chosenSound: Int = 0
 
     func setupViewController(interactor: AlarmCreationViewBuisnessLogic) {
         self.interactor = interactor
@@ -36,6 +39,7 @@ class AlarmCreationViewController: UIViewController {
     
     private func setupAlarmCreation() {
         setupTitleField()
+        setupSoundPicker()
         setupTimePicker()
         setupDoneButton()
     }
@@ -47,7 +51,22 @@ class AlarmCreationViewController: UIViewController {
         let minute = components.minute!
         
         let time = hour * 60 + minute
-        interactor?.createAlarm(time: time, title: titleField?.text ?? "Alarm")
+        interactor?.createAlarm(time: time, title: titleField?.text ?? "Alarm", sound: chosenSound)
+    }
+    
+    private func setupSoundPicker() {
+        // Creating picker.
+        let soundPicker = UIPickerView()
+        soundPicker.delegate = interactor?.getPickerDelegate()
+        soundPicker.dataSource = interactor?.getPickerDataSource()
+        view.addSubview(soundPicker)
+        soundPicker.pinTop(to: titleField!.bottomAnchor, 10)
+        soundPicker.pinLeft(to: view, 10)
+        soundPicker.pinRight(to: view, 10)
+        soundPicker.setHeight(to: 100)
+        soundPicker.layoutIfNeeded()
+        soundPicker.makeRetroPicker()
+        self.soundPicker = soundPicker
     }
     
     private func setupDoneButton() {
@@ -74,9 +93,9 @@ class AlarmCreationViewController: UIViewController {
         view.addSubview(timePicker)
         timePicker.pinLeft(to: view, 10)
         timePicker.pinRight(to: view, 10)
-        timePicker.pinTop(to: titleField!.bottomAnchor, 10)
+        timePicker.pinTop(to: soundPicker!.bottomAnchor, 10)
         timePicker.layoutIfNeeded()
-        timePicker.makeRetroUI()
+        timePicker.makeRetroPicker()
         self.timePicker = timePicker
     }
     
@@ -96,5 +115,7 @@ class AlarmCreationViewController: UIViewController {
 
 extension AlarmCreationViewController: AlarmCreationViewDisplayLogic {
     
+    func setChosenSound(soundNumber: Int) {
+        chosenSound = soundNumber
+    }
 }
-

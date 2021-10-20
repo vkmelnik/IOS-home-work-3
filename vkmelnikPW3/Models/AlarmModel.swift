@@ -12,6 +12,7 @@ class AlarmModel {
     public var title: String = "Alarm"
     public var time: Int = 0;
     public var isActive: Bool = false
+    public var soundNumber: Int = 0
     public var id: Int
     
     init() {

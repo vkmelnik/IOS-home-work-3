@@ -9,6 +9,9 @@ import UIKit
 
 protocol AlarmModificationViewDisplayLogic {
     func setupTime(time: Int)
+    func setupSound(sound: Int)
+    func setupTitle(title: String)
+    func setChosenSound(soundNumber: Int)
 }
 
 class AlarmModificationViewController: UIViewController {
@@ -17,7 +20,10 @@ class AlarmModificationViewController: UIViewController {
     private var timePicker: UIDatePicker?
     private var doneButton: UIButton?
     private var deleteButton: UIButton?
+    private var soundPicker: UIPickerView?
     private var titleField: UITextField?
+    
+    private var chosenSound: Int = 0
 
     func setupViewController(interactor: AlarmModificationViewBuisnessLogic) {
         self.interactor = interactor
@@ -32,12 +38,13 @@ class AlarmModificationViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 0.8220563487, green: 0.8234423022, blue: 0.8715592698, alpha: 1)
         setupRetroBackground3()
         setupAlarmCreation()
-        interactor?.setupTime()
+        interactor?.setupAlarm()
         // Do any additional setup after loading the view.
     }
     
     private func setupAlarmCreation() {
         setupTitleField()
+        setupSoundPicker()
         setupTimePicker()
         setupDoneButton()
         setupDeleteButton()
@@ -50,7 +57,7 @@ class AlarmModificationViewController: UIViewController {
         let minute = components.minute!
         
         let time = hour * 60 + minute
-        interactor?.modifyAlarm(newTime: time, newTitle: titleField?.text ?? "Alarm")
+        interactor?.modifyAlarm(newTime: time, newTitle: titleField?.text ?? "Alarm", newSound: chosenSound)
         self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
@@ -101,9 +108,9 @@ class AlarmModificationViewController: UIViewController {
         view.addSubview(timePicker)
         timePicker.pinLeft(to: view, 10)
         timePicker.pinRight(to: view, 10)
-        timePicker.pinTop(to: titleField!.bottomAnchor, 10)
+        timePicker.pinTop(to: soundPicker!.bottomAnchor, 10)
         timePicker.layoutIfNeeded()
-        timePicker.makeRetroUI()
+        timePicker.makeRetroPicker()
         self.timePicker = timePicker
     }
     
@@ -120,6 +127,21 @@ class AlarmModificationViewController: UIViewController {
         self.titleField = titleField
     }
     
+    private func setupSoundPicker() {
+        // Creating picker.
+        let soundPicker = UIPickerView()
+        soundPicker.delegate = interactor?.getPickerDelegate()
+        soundPicker.dataSource = interactor?.getPickerDataSource()
+        view.addSubview(soundPicker)
+        soundPicker.pinTop(to: titleField!.bottomAnchor, 10)
+        soundPicker.pinLeft(to: view, 10)
+        soundPicker.pinRight(to: view, 10)
+        soundPicker.setHeight(to: 100)
+        soundPicker.layoutIfNeeded()
+        soundPicker.makeRetroPicker()
+        self.soundPicker = soundPicker
+    }
+    
 }
 
 extension AlarmModificationViewController: AlarmModificationViewDisplayLogic {
@@ -130,5 +152,18 @@ extension AlarmModificationViewController: AlarmModificationViewDisplayLogic {
         let minutes = time % 60
         let date = dateFormatter.date(from: "\(hours/10)\(hours%10):\(minutes/10)\(minutes%10)")
         timePicker?.date = date!
+    }
+    
+    func setupSound(sound: Int) {
+        soundPicker?.selectRow(sound, inComponent: 0, animated: false)
+        chosenSound = sound
+    }
+    
+    func setupTitle(title: String) {
+        titleField?.text = title
+    }
+    
+    func setChosenSound(soundNumber: Int) {
+        chosenSound = soundNumber
     }
 }
