@@ -7,6 +7,8 @@
 
 import UIKit
 
+// View for displaying notifications inside app.
+// This view does not relate to usual notifications.
 class NotificationView: UIView {
     private var titleLabel: UILabel?
     private var textLabel: UILabel?

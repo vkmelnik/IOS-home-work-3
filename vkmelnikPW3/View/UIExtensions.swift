@@ -7,6 +7,9 @@
 
 import UIKit
 
+
+// Extensions that allow to customize some UI elements.
+
 extension UIViewController {
     func setupBackground() -> UIImageView {
         let retroBackground = UIImageView()
@@ -132,6 +135,7 @@ extension UIView {
         return layer
     }
     
+    // Make PickerView or DatePickerView to look like in older IOS versions.
     func makeRetroPicker() {
         backgroundColor = .white
         layer.cornerRadius = 15
@@ -146,6 +150,7 @@ extension UIView {
 
 extension UISwitch {
     
+    // Make switch look like in older IOS versions.
     func makeRetroUI() {
         thumbTintColor = UIColor(patternImage: getThumbGradient().createGradientImage(size: self.bounds.size)!)
         onTintColor = #colorLiteral(red: 0.003921568627, green: 0.4549019608, blue: 1, alpha: 1)
@@ -156,6 +161,7 @@ extension UISwitch {
 
 extension UIButton {
     
+    // Make button look like in older IOS versions.
     func makeRetroUI() {
         let gradient = getGlass()
         layer.shadowColor = UIColor.black.cgColor

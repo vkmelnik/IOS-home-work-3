@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Alarm view cell for UICollectionView.
 class AlarmCollectionViewCell: UICollectionViewCell {
     
     public var alarmView: AlarmView?

@@ -40,9 +40,14 @@ class AlarmsContainer {
         do {
             let fetchRequest: NSFetchRequest<AlarmModel> = AlarmModel.fetchRequest()
             let objects = try context!.fetch(fetchRequest)
+            var newIdStartValue: Int16 = 0
             for object in objects {
+                if (object.id >= newIdStartValue) {
+                    newIdStartValue = object.id + 1
+                }
                 alarms.append(object)
             }
+            AlarmModel.initNewId(newIdStartValue: Int16(newIdStartValue))
             setAlarms()
         } catch {
             context!.rollback()

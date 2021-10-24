@@ -20,6 +20,7 @@ class AlarmModificationViewController: UIViewController {
     private var timePicker: UIDatePicker?
     private var doneButton: UIButton?
     private var deleteButton: UIButton?
+    // Picker for sound that alarm will do.
     private var soundPicker: UIPickerView?
     private var titleField: UITextField?
     

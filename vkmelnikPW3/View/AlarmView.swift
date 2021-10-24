@@ -7,6 +7,7 @@
 
 import UIKit
 
+// View that displays alarm and allows to turn it on/off.
 class AlarmView: UIView {
 
     public var toggle: UISwitch?

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Alarm cell for UITableView.
 class AlarmViewCell: UITableViewCell {
     
     public var alarmView: AlarmView?

@@ -33,6 +33,10 @@ extension AlarmModel {
         return alarm
     }
     
+    public static func initNewId(newIdStartValue: Int16) {
+        newId = newIdStartValue
+    }
+    
     func getFormatedTime() -> String {
         let hours = time / 60
         let minutes = time % 60

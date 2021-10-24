@@ -17,6 +17,7 @@ class AlarmCreationViewController: UIViewController {
     private var timePicker: UIDatePicker?
     private var doneButton: UIButton?
     private var titleField: UITextField?
+    // Picker for sound that alarm will do.
     private var soundPicker: UIPickerView?
     
     public var chosenSound: Int = 0
